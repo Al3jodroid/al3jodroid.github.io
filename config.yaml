@@ -1,4 +1,4 @@
-baseURL: /
+baseURL: https://al3jodroid.github.io/
 title: "CV Alejandro Rodríguez"
 theme: aafu
 defaultContentLanguage: en
@@ -11,6 +11,20 @@ build:
 
 ignoreLogs:
   - 'warning-goldmark-raw-html'
+
+security:
+  exec:
+    allow:
+      - '^(dart-)?sass$'
+      - '^go$'
+      - '^git$'
+      - '^node$'
+      - '^postcss$'
+      - '^tailwindcss$'
+      - '^npx$'
+  node:
+    permissions:
+      disable: true
 
 languages:
   en:
