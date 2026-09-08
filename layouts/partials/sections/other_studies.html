@@ -1,0 +1,29 @@
+<!-- 6. Otros Estudios y Participaciones / Other Studies and Participations -->
+{{ if .Params.other_studies }}
+<div class="accordion-section section-other-studies">
+  <h2 class="accordion">
+    <p onclick="expandAccordion(this)">
+      <span class="accordion-header-lead">
+        <i class="bi bi-award-fill"></i>
+        <span>{{ i18n "other_studies_title" | default "Other Studies and Participations" }}</span>
+      </span>
+      <i class="bi bi-chevron-down accordion-chevron"></i>
+    </p>
+  </h2>
+  <div class="panel">
+    <div class="panel-body">
+      {{ range .Params.other_studies }}
+      <div class="study-card">
+        <h4 class="study-title">{{ .title }}</h4>
+        {{ with .institution }}
+        <div class="study-institution">{{ . }}</div>
+        {{ end }}
+        {{ with .period }}
+        <p class="study-period">{{ . }}</p>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

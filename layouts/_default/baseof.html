@@ -1,0 +1,19 @@
+<!doctype html>
+<html
+    lang="{{ .Site.Language.Locale }}"
+    class="m-auto {{ if .Site.Params.theme.mainTheme }} {{ .Site.Params.theme.mainTheme }} {{ end }}"
+>
+  {{- partial "head.html" . -}}
+  <body class="min-h-screen flex flex-col m-0 p-0 w-full">
+    <div class="site-container grow flex flex-col w-full max-w-4xl mx-auto px-2">
+      {{ if not .Site.Params.theme.singlePage }}
+      {{ partial "header" . }}
+      {{ end }}
+      <main class="grow">
+        {{- block "main" . }}
+        {{- end }}
+      </main>
+    </div>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

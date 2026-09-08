@@ -1,0 +1,41 @@
+baseURL: /
+title: "CV Alejandro Rodríguez"
+theme: aafu
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+build:
+  writeStats: true
+  buildStats:
+    enable: true
+
+ignoreLogs:
+  - 'warning-goldmark-raw-html'
+
+languages:
+  en:
+    title: "CV Alejandro Rodríguez (EN)"
+    label: "English"
+    locale: "en"
+    weight: 1
+    contentDir: content/en
+  es:
+    title: "CV Alejandro Rodríguez (ES)"
+    label: "Español"
+    locale: "es"
+    weight: 2
+    contentDir: content/es
+
+params:
+  author: "Alejandro Rodríguez Salazar"
+  description: "Android && Flutter Specialist"
+  copyright: "Alejandro Rodríguez S."
+  theme:
+    mainTheme: dark
+    showAttribute: false
+    singlePage: false
+  footer:
+    author_url: "https://github.com/Al3jodroid"
+    hosting_url: "https://pages.github.com"
+    framework_url: "https://gohugo.io"
+    cv_web_url: "https://al3jodroid.github.io/"

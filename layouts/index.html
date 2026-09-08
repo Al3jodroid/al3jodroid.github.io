@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="cv-grid">
+  <!-- Left Column (30% in print): Profile, Languages, About Me, Quote, Education (print only) -->
+  <aside class="cv-sidebar">
+    {{ partial "sections/profile.html" . }}
+    {{ partial "sections/languages.html" . }}
+    {{ partial "sections/about_me.html" . }}
+    {{ partial "sections/quote.html" . }}
+    <div class="education-print-only">
+      {{ partial "sections/education.html" . }}
+      {{ partial "sections/other_studies.html" . }}
+    </div>
+    <div class="page3-print-sidebar">
+      {{ partial "sections/publications.html" . }}
+      {{ partial "sections/references.html" . }}
+    </div>
+  </aside>
+
+  <!-- Right Column (70% in print): Knowledge, Skills, Experience, and remaining sections -->
+  <main class="cv-main">
+    <div class="cv-knowledge-col">
+      {{ partial "sections/knowledge.html" . }}
+      {{ partial "sections/skills.html" . }}
+    </div>
+    <div class="page2-print-main">
+      {{ partial "sections/experience.html" . }}
+    </div>
+    <div class="page3-print-main">
+      {{ partial "sections/projects.html" . }}
+    </div>
+    <div class="cv-rest-sections">
+      {{ partial "sections/projects.html" . }}
+      {{ partial "sections/publications.html" . }}
+      <div class="education-web-only">
+        {{ partial "sections/education.html" . }}
+        {{ partial "sections/other_studies.html" . }}
+      </div>
+      {{ partial "sections/references.html" . }}
+    </div>
+  </main>
+</div>
+{{ end }}

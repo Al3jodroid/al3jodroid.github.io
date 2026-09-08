@@ -1,0 +1,50 @@
+<!-- Languages Card -->
+{{ if .Params.languages }}
+<div class="languages-card">
+  <h3 class="card-heading">
+    <i class="bi bi-translate"></i> {{ i18n "languages_title" | default "Languages" }}
+  </h3>
+  <div class="lang-group">
+    {{ range .Params.languages }}
+    <div class="lang-item">
+      <div class="lang-header">
+        <span class="lang-name">
+          {{ $flag := .flag }}
+          {{ if not $flag }}
+            {{ if or (eq .name "Español") (eq .name "Spanish") }}{{ $flag = "es" }}{{ end }}
+            {{ if or (hasPrefix .name "Inglés") (hasPrefix .name "English") }}{{ $flag = "gb" }}{{ end }}
+          {{ end }}
+          {{ with $flag }}
+          <img
+            class="flag-circle"
+            src="{{ printf "images/flags/%s.svg" . | relURL }}"
+            alt="{{ . }}"
+            width="20"
+            height="20"
+            loading="lazy"
+          />
+          {{ end }}
+          <span>{{ .name }}</span>
+        </span>
+        <span class="lang-level">{{ .level }}</span>
+      </div>
+      {{ if .skills }}
+      <div class="lang-skills-grid">
+        {{ range .skills }}
+        <div>
+          <div class="lang-skill-row">
+            <span>{{ .name }}</span>
+            <span class="lang-skill-pct">{{ .percent }}%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: {{ .percent }}%"></div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

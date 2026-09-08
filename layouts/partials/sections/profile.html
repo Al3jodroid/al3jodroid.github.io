@@ -1,0 +1,100 @@
+<!-- Profile Card -->
+<div class="profile-card">
+  <div class="profile-center">
+    <!-- Profile Photo -->
+    <div class="profile-photo-container">
+      <div
+        class="avatar-box"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}"
+        tabindex="0"
+        role="button"
+        title="Click to flip avatar"
+        aria-label="Click to flip avatar"
+      >
+        <div class="avatar-flipper">
+          <img
+            class="avatar-img avatar-front"
+            src="{{ .Params.avatar | relURL }}"
+            alt="{{ .Params.title }}"
+            onerror="this.src='/images/profile.jpg'"
+          />
+          <img
+            class="avatar-img avatar-back"
+            src="{{ .Params.droid_avatar | default "images/droid.jpg" | relURL }}"
+            alt="Droid Avatar"
+            onerror="this.src='/images/profile.jpg'"
+          />
+        </div>
+        <div class="avatar-badges">
+          <span class="avatar-badge avatar-badge-android" title="Android Specialist">
+            {{ partial "icons/android.html" (dict "class" "avatar-badge-icon" "title" "Android Specialist") }}
+          </span>
+          <span class="avatar-badge avatar-badge-flutter" title="Flutter Specialist">
+            {{ partial "icons/flutter.html" (dict "class" "avatar-badge-icon" "title" "Flutter Specialist") }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Info -->
+    <div class="profile-details">
+      <h1 class="profile-name">{{ .Params.title }}</h1>
+      <h2 class="profile-role">{{ .Params.role }}</h2>
+      {{ with .Params.contact.location }}
+      <h3 class="profile-location">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>{{ . }}</span>
+        {{ with $.Params.contact.location_flag }}
+        <img
+          class="flag-circle flag-location"
+          src="{{ printf "images/flags/%s.svg" . | relURL }}"
+          alt="{{ . }}"
+          width="18"
+          height="18"
+          loading="lazy"
+        />
+        {{ end }}
+      </h3>
+      {{ end }}
+
+      <!-- Social / Contact Links -->
+      <div class="contact-bar">
+        {{ with .Params.contact.email }}
+        <a class="contact-icon" href="mailto:{{ . }}" title="{{ . }}">
+          <i class="bi bi-envelope-fill"></i>
+          <span class="contact-print-text">{{ . }}</span>
+        </a>
+        {{ end }}
+
+        {{ with .Params.contact.linkedin }}
+        <a class="contact-icon" href="{{ . }}" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+          <span class="contact-print-text">{{ replaceRE "^https?://(www\\.)?" "" . | replaceRE "/$" "" }}</span>
+        </a>
+        {{ end }}
+
+        {{ with .Params.contact.github }}
+        <a class="contact-icon" href="{{ . }}" target="_blank" rel="noopener" title="GitHub">
+          <i class="bi bi-github"></i>
+          <span class="contact-print-text">{{ replaceRE "^https?://(www\\.)?" "" . | replaceRE "/$" "" }}</span>
+        </a>
+        {{ end }}
+
+        {{ with .Params.contact.google }}
+        <a class="contact-icon" href="{{ . }}" target="_blank" rel="noopener" title="Google">
+          <i class="bi bi-google"></i>
+          <span class="contact-print-text">{{ replaceRE "^https?://(www\\.)?" "" . | replaceRE "/$" "" }}</span>
+        </a>
+        {{ end }}
+
+        {{ with .Params.contact.medium }}
+        <a class="contact-icon" href="{{ . }}" target="_blank" rel="noopener" title="Medium">
+          <i class="bi bi-medium"></i>
+          <span class="contact-print-text">{{ replaceRE "^https?://(www\\.)?" "" . | replaceRE "/$" "" }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- Quote Card -->
+{{ with .Params.quote }}
+<div class="quote-card">
+  <p class="quote-text">&ldquo;{{ . }}&rdquo;</p>
+</div>
+<script>
+  (function() {
+    function fitQuote() {
+      document.querySelectorAll('.quote-card').forEach(function(card) {
+        var text = card.querySelector('.quote-text');
+        if (!text) return;
+
+        var testSize = 14;
+        text.style.fontSize = testSize + 'px';
+        text.style.whiteSpace = 'nowrap';
+        text.style.display = 'inline-block';
+        text.style.textAlign = 'center';
+
+        var cs = window.getComputedStyle(card);
+        var pad = (parseFloat(cs.paddingLeft) || 0) + (parseFloat(cs.paddingRight) || 0);
+        var avail = card.clientWidth - pad;
+
+        if (avail > 0) {
+          var measuredWidth = text.scrollWidth;
+          if (measuredWidth > 0) {
+            var targetSize = Math.min((testSize * (avail / measuredWidth)) * 0.98, 14);
+            text.style.fontSize = targetSize.toFixed(2) + 'px';
+          }
+        }
+      });
+    }
+    window.addEventListener('load', fitQuote);
+    window.addEventListener('resize', fitQuote);
+    window.addEventListener('beforeprint', fitQuote);
+    document.addEventListener('DOMContentLoaded', fitQuote);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitQuote);
+    }
+    fitQuote();
+  })();
+</script>
+{{ end }}

@@ -1,0 +1,34 @@
+<!-- 5. Educación / Education -->
+{{ if .Params.education }}
+<div class="accordion-section">
+  <h2 class="accordion">
+    <p onclick="expandAccordion(this)">
+      <span class="accordion-header-lead">
+        <i class="bi bi-mortarboard-fill"></i>
+        <span>{{ i18n "education_title" | default "Education" }}</span>
+      </span>
+      <i class="bi bi-chevron-down accordion-chevron"></i>
+    </p>
+  </h2>
+  <div class="panel">
+    <div class="panel-body">
+      {{ range .Params.education }}
+      <div class="timeline-card-compact">
+        <div class="timeline-header">
+          <div class="timeline-left">
+            <h4 class="timeline-title">{{ .degree }}</h4>
+            <div class="timeline-subtitle">{{ .institution }}</div>
+          </div>
+          <div class="timeline-right">
+            <span class="timeline-badge">{{ .period }}</span>
+          </div>
+        </div>
+        {{ with .details }}
+        <p class="timeline-desc">{{ . | markdownify }}</p>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

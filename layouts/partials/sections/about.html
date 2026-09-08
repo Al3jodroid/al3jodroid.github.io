@@ -1,0 +1,43 @@
+<!-- 1. Knowledge / Conocimientos (Expanded by default) -->
+<div class="accordion-section">
+  <h2 class="accordion active">
+    <p onclick="expandAccordion(this)">
+      <i class="bi bi-lightbulb-fill"></i>
+      <span>{{ i18n "knowledge_title" | default "Knowledge" }}</span>
+    </p>
+  </h2>
+  <div class="panel">
+    <div class="panel-body">
+      <!-- Knowledge of Mobile Development -->
+      {{ if .Params.mobile_knowledge }}
+      <div>
+        <h4 class="subheading">
+          <i class="bi bi-phone"></i> {{ i18n "mobile_knowledge_title" | default "Knowledge of Mobile Development" }}
+        </h4>
+        <ul class="bullet-list">
+          {{ range .Params.mobile_knowledge }}
+          <li class="bullet-item">
+            <span class="bullet-arrow">&rsaquo;</span>
+            <span>{{ . | markdownify }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      <!-- Other Knowledge -->
+      {{ if .Params.other_knowledge }}
+      <div class="subheading-section">
+        <ul class="bullet-list">
+          {{ range .Params.other_knowledge }}
+          <li class="bullet-item">
+            <span class="bullet-arrow">&rsaquo;</span>
+            <span>{{ . | markdownify }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

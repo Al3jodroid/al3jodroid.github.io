@@ -1,0 +1,1738 @@
+@import "tailwindcss";
+
+@theme {
+  --color-android: #3DDC84;
+  --color-android-dark: #006C47;
+  --color-android-light: #8DF7B6;
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --font-serif: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-roboto: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-roboto-mono: 'Roboto Mono', monospace;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@plugin "@tailwindcss/typography";
+
+@source "../layouts";
+@source "../content";
+@source "../themes";
+@source "hugo_stats.json";
+
+/* ==========================================================================
+   Material Design 3 (Material You / M3) Design Tokens
+   Source Color: Android Green (#3DDC84)
+   ========================================================================== */
+
+:root {
+  /* M3 Light Tonal Palette */
+  --md-sys-color-primary: #006c47;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #8df7b6;
+  --md-sys-color-on-primary-container: #002112;
+  --md-sys-color-secondary: #4e6353;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #d1e8d4;
+  --md-sys-color-on-secondary-container: #0b1f13;
+  --md-sys-color-tertiary: #3b6470;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #bfe9f8;
+  --md-sys-color-on-tertiary-container: #001f27;
+  --md-sys-color-surface: #f7fbf3;
+  --md-sys-color-on-surface: #181d19;
+  --md-sys-color-surface-variant: #dce5dc;
+  --md-sys-color-on-surface-variant: #404942;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f1f5ee;
+  --md-sys-color-surface-container: #ebefe8;
+  --md-sys-color-surface-container-high: #e5eae2;
+  --md-sys-color-surface-container-highest: #dfe4dc;
+  --md-sys-color-outline: #717972;
+  --md-sys-color-outline-variant: #c0c9c0;
+
+  /* M3 Shape Scale */
+  --md-sys-shape-corner-xs: 4px;
+  --md-sys-shape-corner-s: 8px;
+  --md-sys-shape-corner-m: 12px;
+  --md-sys-shape-corner-l: 16px;
+  --md-sys-shape-corner-xl: 24px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* M3 Elevation Shadows */
+  --md-sys-elevation-0: none;
+  --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+  --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.10), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.dark {
+  /* M3 Dark Tonal Palette (Iconic Android Green #3DDC84 as Primary) */
+  --md-sys-color-primary: #3ddc84;
+  --md-sys-color-on-primary: #003922;
+  --md-sys-color-primary-container: #005234;
+  --md-sys-color-on-primary-container: #8df7b6;
+  --md-sys-color-secondary: #b5ccb9;
+  --md-sys-color-on-secondary: #213527;
+  --md-sys-color-secondary-container: #374b3c;
+  --md-sys-color-on-secondary-container: #d1e8d4;
+  --md-sys-color-tertiary: #a3cddb;
+  --md-sys-color-on-tertiary: #033641;
+  --md-sys-color-tertiary-container: #224c58;
+  --md-sys-color-on-tertiary-container: #bfe9f8;
+  --md-sys-color-surface: #0f1511;
+  --md-sys-color-on-surface: #dfe4dc;
+  --md-sys-color-surface-variant: #404942;
+  --md-sys-color-on-surface-variant: #c0c9c0;
+  --md-sys-color-surface-container-lowest: #0a0f0c;
+  --md-sys-color-surface-container-low: #171d19;
+  --md-sys-color-surface-container: #1b211d;
+  --md-sys-color-surface-container-high: #262b27;
+  --md-sys-color-surface-container-highest: #303632;
+  --md-sys-color-outline: #8a938b;
+  --md-sys-color-outline-variant: #404942;
+
+  /* M3 Elevation Shadows (Dark) */
+  --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.35), 0px 1px 2px 0px rgba(0, 0, 0, 0.45);
+  --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.35), 0px 1px 2px 0px rgba(0, 0, 0, 0.45);
+  --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.40), 0px 1px 3px 0px rgba(0, 0, 0, 0.50);
+}
+
+@layer base {
+  html {
+    touch-action: manipulation;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    transition: background-color 0.25s ease, color 0.25s ease;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .slab {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  code,
+  pre,
+  .mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  a {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+  }
+}
+
+@layer components {
+
+  /* ==========================================================================
+     M3 Site Layout
+     ========================================================================== */
+  .cv-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    gap: 1.25rem;
+    padding: 0.5rem 0 2rem 0;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+
+  .cv-sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-column: span 2 / span 2;
+    }
+  }
+
+  .cv-main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.75rem;
+
+    @media (min-width: 768px) {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  .cv-knowledge-col,
+  .cv-rest-sections {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 0.75rem;
+  }
+
+  .contact-print-text {
+    display: none;
+  }
+
+  .education-print-only,
+  .page3-print-sidebar,
+  .page3-print-main {
+    display: none;
+  }
+
+  .education-web-only {
+    display: contents;
+  }
+
+  /* ==========================================================================
+     Top App Bar / Action Controls (No enclosing card)
+     ========================================================================== */
+  .site-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  .site-title-container,
+  .site-title {
+    display: none;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    border-radius: var(--md-sys-shape-corner-full);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-surface-container-low);
+    text-decoration: none;
+    box-shadow: var(--md-sys-elevation-1);
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+    line-height: 1;
+
+    &:hover {
+      text-decoration: none;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      border-color: var(--md-sys-color-primary);
+      transform: translateY(-1px);
+      box-shadow: var(--md-sys-elevation-2);
+    }
+  }
+
+  .btn-icon,
+  .theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--md-sys-shape-corner-full);
+    font-size: 1.125rem;
+    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-surface-container-low);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+    &:hover {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      border-color: var(--md-sys-color-primary);
+      transform: translateY(-1px);
+      box-shadow: var(--md-sys-elevation-2);
+    }
+  }
+
+  /* ==========================================================================
+     M3 Sidebar Cards: Profile, Languages, About Me, Quote, Footer
+     ========================================================================== */
+
+  /* Profile Card (M3 Elevated Card with Android Identity) */
+  .profile-card {
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: var(--md-sys-shape-corner-xl);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    padding: 1.25rem 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease;
+  }
+
+  .profile-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-photo-container {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .avatar-box {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    perspective: 1000px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.25s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--md-sys-color-primary);
+      outline-offset: 4px;
+      border-radius: var(--md-sys-shape-corner-full);
+    }
+  }
+
+  .avatar-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
+  .avatar-box.flipped .avatar-flipper {
+    transform: rotateY(180deg);
+  }
+
+  .avatar-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: var(--md-sys-shape-corner-full);
+    border: 4px solid var(--md-sys-color-surface);
+    box-shadow: 0 0 0 3px var(--md-sys-color-primary), var(--md-sys-elevation-2);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .avatar-front {
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+
+  .avatar-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+  }
+
+  .avatar-badges {
+    position: absolute;
+    bottom: 3px;
+    right: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.12rem;
+    z-index: 2;
+  }
+
+  .avatar-badge {
+    position: relative;
+    width: 1.95rem;
+    height: 1.95rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: var(--md-sys-elevation-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--md-sys-color-surface);
+  }
+
+  .avatar-badge-android {
+    background-color: #006c47;
+    color: #ffffff;
+  }
+
+  .dark .avatar-badge-android {
+    background-color: #00875a;
+    color: #ffffff;
+  }
+
+  .avatar-badge-flutter {
+    background-color: #02569b;
+    color: #ffffff;
+  }
+
+  .dark .avatar-badge-flutter {
+    background-color: #0175c2;
+    color: #ffffff;
+  }
+
+  .avatar-badge-icon {
+    width: 1.15rem;
+    height: auto;
+    max-height: 1.15rem;
+    display: block;
+    color: #ffffff;
+  }
+
+  .profile-details {
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .profile-role {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--md-sys-color-primary);
+  }
+
+  .profile-location {
+    font-size: 0.85rem;
+    color: var(--md-sys-color-on-surface-variant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
+
+    >i {
+      color: var(--md-sys-color-primary);
+    }
+  }
+
+  .contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.625rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  .contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--md-sys-shape-corner-full);
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-primary);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+    &:hover {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      border-color: var(--md-sys-color-primary);
+      transform: translateY(-1px);
+      box-shadow: var(--md-sys-elevation-2);
+    }
+  }
+
+  /* Languages & About Cards (M3 Filled Cards) */
+  .languages-card,
+  .about-card,
+  .bio-card {
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: var(--md-sys-shape-corner-l);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    padding: 1rem 1.25rem;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .card-heading {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--md-sys-color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lang-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lang-item {
+    display: block;
+  }
+
+  .lang-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 0.35rem;
+    gap: 0.25rem 0.5rem;
+    line-height: 1.2;
+  }
+
+  .lang-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    color: var(--md-sys-color-on-surface);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .lang-name>span {
+    line-height: 1.2;
+    display: inline-block;
+  }
+
+  .flag-circle,
+  .lang-flag {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: none;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-sizing: border-box;
+    background: transparent;
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: middle;
+  }
+
+  .flag-location {
+    width: 17px;
+    height: 17px;
+  }
+
+  .lang-level {
+    font-size: 0.78rem;
+    line-height: 1.2;
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+    margin-left: auto;
+    text-align: right;
+    min-width: 0;
+  }
+
+  .lang-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 0.75rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .lang-skill-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .lang-skill-pct {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: var(--md-sys-color-primary);
+  }
+
+  /* M3 Linear Progress Indicators */
+  .progress-track {
+    width: 100%;
+    height: 6px;
+    background-color: var(--md-sys-color-surface-container-highest);
+    border-radius: var(--md-sys-shape-corner-full);
+    overflow: hidden;
+    margin-top: 0.25rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background-color: var(--md-sys-color-primary);
+    border-radius: var(--md-sys-shape-corner-full);
+    transition: width 0.5s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  /* Quote Card */
+  .quote-card {
+    container-type: inline-size;
+    background-color: var(--md-sys-color-surface-container-low);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-sys-shape-corner-l);
+    box-shadow: var(--md-sys-elevation-1);
+    padding: 0.75rem 1rem;
+    transition: box-shadow 0.2s ease;
+    text-align: center;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .quote-text {
+    font-style: italic;
+    font-size: clamp(0.50rem, 2.5cqw, 14px);
+    line-height: 1.35;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100%;
+
+    @media (max-width: 767px) {
+      font-size: clamp(0.50rem, 2.5vw, 14px);
+    }
+  }
+
+  /* Sidebar Footer */
+  .sidebar-footer {
+    background-color: var(--md-sys-color-surface-container-lowest);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-sys-shape-corner-l);
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  .footer-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+  }
+
+  .footer-role {
+    font-size: 0.75rem;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-top: 0.2rem;
+  }
+
+  /* ==========================================================================
+     M3 Expansion Panels (Accordion Cards)
+     ========================================================================== */
+  .accordion-section {
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: var(--md-sys-shape-corner-l);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      box-shadow: var(--md-sys-elevation-2);
+    }
+  }
+
+  h2.accordion {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .accordion {
+    color: var(--md-sys-color-on-surface);
+    user-select: none;
+    margin: 0;
+
+    >p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0.875rem 1.25rem;
+      min-height: 54px;
+      cursor: pointer;
+      border-radius: var(--md-sys-shape-corner-l);
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: var(--md-sys-color-surface-container-high);
+      }
+    }
+  }
+
+  .accordion-header-lead {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+
+    >i {
+      font-size: 1.1rem;
+      color: var(--md-sys-color-primary);
+    }
+  }
+
+  .accordion-chevron {
+    font-size: 0.95rem;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), color 0.2s ease;
+  }
+
+  .accordion.active>p {
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-primary);
+
+    .accordion-header-lead {
+      color: var(--md-sys-color-primary);
+      font-weight: 700;
+    }
+
+    .accordion-chevron {
+      transform: rotate(180deg);
+      color: var(--md-sys-color-primary);
+    }
+  }
+
+  .panel {
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0.2, 0, 0, 1);
+    overflow: hidden;
+  }
+
+  .active {
+    overflow: visible;
+  }
+
+  .panel-body {
+    padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .panel-body-timeline {
+    padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* ==========================================================================
+     Web Accent: Right Column Section Cards & Headers
+     Accentuated Green Headers and Harmonized Card Content (Light & Dark)
+     ========================================================================== */
+  .cv-main .accordion-section {
+    background-color: var(--md-sys-color-surface-container-low);
+    border-color: #b7d6bf;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .cv-main .accordion-section:hover {
+    border-color: #9ec9a8;
+    box-shadow: 0 4px 14px rgba(0, 108, 71, 0.08);
+  }
+
+  /* Accentuated Green Section Headers (Closed state) */
+  .cv-main .accordion>p {
+    background-color: #d8eedc;
+    color: #00472e;
+    border-radius: var(--md-sys-shape-corner-l);
+    border-bottom: 1px solid transparent;
+  }
+
+  .cv-main .accordion>p:hover {
+    background-color: #c9e8cf;
+  }
+
+  .cv-main .accordion>p .accordion-header-lead {
+    color: #00472e;
+  }
+
+  .cv-main .accordion>p .accordion-header-lead>i {
+    color: #006c47;
+  }
+
+  .cv-main .accordion>p .accordion-chevron {
+    color: #005a39;
+  }
+
+  /* Accentuated Green Section Headers (Active / Open state) */
+  .cv-main .accordion.active>p {
+    background-color: #c6e6cd;
+    color: #003922;
+    border-radius: var(--md-sys-shape-corner-l) var(--md-sys-shape-corner-l) 0 0;
+    border-bottom: 1px solid #a8d5b2;
+  }
+
+  .cv-main .accordion.active>p:hover {
+    background-color: #bde0c5;
+  }
+
+  .cv-main .accordion.active>p .accordion-header-lead {
+    color: #003922;
+  }
+
+  .cv-main .accordion.active>p .accordion-header-lead>i {
+    color: #006c47;
+  }
+
+  .cv-main .accordion.active>p .accordion-chevron {
+    color: #003922;
+  }
+
+  /* Harmonized Card Content Interior */
+  .cv-main .panel {
+    background-color: var(--md-sys-color-surface-container-low);
+  }
+
+  /* Dark Mode Styles */
+  .dark .cv-main .accordion-section {
+    background-color: #121915;
+    border-color: #233e2e;
+  }
+
+  .dark .cv-main .accordion-section:hover {
+    border-color: #2f543e;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Dark Mode Accentuated Green Section Headers */
+  .dark .cv-main .accordion>p {
+    background-color: #173b26;
+    color: #e5f7ed;
+    border-bottom: 1px solid transparent;
+  }
+
+  .dark .cv-main .accordion>p:hover {
+    background-color: #1e472f;
+  }
+
+  .dark .cv-main .accordion>p .accordion-header-lead {
+    color: #e5f7ed;
+  }
+
+  .dark .cv-main .accordion>p .accordion-header-lead>i {
+    color: #3ddc84;
+  }
+
+  .dark .cv-main .accordion>p .accordion-chevron {
+    color: #8df7b6;
+  }
+
+  /* Dark Mode Active / Open state */
+  .dark .cv-main .accordion.active>p {
+    background-color: #1d462d;
+    color: #ffffff;
+    border-radius: var(--md-sys-shape-corner-l) var(--md-sys-shape-corner-l) 0 0;
+    border-bottom: 1px solid #2d6240;
+  }
+
+  .dark .cv-main .accordion.active>p:hover {
+    background-color: #245236;
+  }
+
+  .dark .cv-main .accordion.active>p .accordion-header-lead {
+    color: #ffffff;
+  }
+
+  .dark .cv-main .accordion.active>p .accordion-header-lead>i {
+    color: #3ddc84;
+  }
+
+  .dark .cv-main .accordion.active>p .accordion-chevron {
+    color: #3ddc84;
+  }
+
+  /* Dark Mode Content Interior */
+  .dark .cv-main .panel {
+    background-color: #0e1511;
+  }
+
+  /* ==========================================================================
+     Web Accent: Left Column Cards Border Lines (Light & Dark)
+     ========================================================================== */
+  .cv-sidebar .profile-card,
+  .cv-sidebar .languages-card,
+  .cv-sidebar .about-card,
+  .cv-sidebar .quote-card {
+    border-color: #b7d6bf;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .cv-sidebar .profile-card:hover,
+  .cv-sidebar .languages-card:hover,
+  .cv-sidebar .about-card:hover,
+  .cv-sidebar .quote-card:hover {
+    border-color: #9ec9a8;
+    box-shadow: 0 4px 14px rgba(0, 108, 71, 0.08);
+  }
+
+  .dark .cv-sidebar .profile-card,
+  .dark .cv-sidebar .languages-card,
+  .dark .cv-sidebar .about-card,
+  .dark .cv-sidebar .quote-card {
+    border-color: #233e2e;
+  }
+
+  .dark .cv-sidebar .profile-card:hover,
+  .dark .cv-sidebar .languages-card:hover,
+  .dark .cv-sidebar .about-card:hover,
+  .dark .cv-sidebar .quote-card:hover {
+    border-color: #2f543e;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  .bio-text {
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .knowledge-groups-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .knowledge-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+
+  .subheading-section {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  .subheading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--md-sys-color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .bullet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-left: 0.25rem;
+    margin: 0;
+  }
+
+  .bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--md-sys-color-on-surface);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .bullet-arrow {
+    color: var(--md-sys-color-primary);
+    font-weight: 700;
+    user-select: none;
+    line-height: 1.4;
+  }
+
+  /* ==========================================================================
+     M3 Timeline & Job Experience
+     ========================================================================== */
+  .timeline-card {
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    padding-bottom: 0.875rem;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .timeline-card-compact {
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    padding-bottom: 0.75rem;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .timeline-card-compact .timeline-desc {
+    margin-top: 0.35rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.35rem 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    min-width: 0;
+    flex: 1 1 200px;
+  }
+
+  .timeline-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .timeline-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .timeline-subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--md-sys-color-primary);
+    margin: 0;
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  /* M3 Assist Badge */
+  .timeline-badge {
+    font-size: 0.75rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--md-sys-shape-corner-full);
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    white-space: nowrap;
+  }
+
+  .timeline-location {
+    font-size: 0.8125rem;
+    color: var(--md-sys-color-on-surface-variant);
+    margin: 0;
+    padding-right: 0.6rem;
+    line-height: 1.25;
+    text-align: right;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .timeline-muted {
+    font-weight: normal;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .timeline-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--md-sys-color-on-surface);
+    margin-top: 0.875rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .tech-pills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.5rem;
+  }
+
+  /* M3 Filter / Assist Chips */
+  .tech-pill,
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--md-sys-shape-corner-s);
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface-variant);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      border-color: var(--md-sys-color-primary);
+    }
+  }
+
+  /* ==========================================================================
+     M3 Projects (Divider-separated entries, no nested cards)
+     ========================================================================== */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .project-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.125rem;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .project-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .project-platforms {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .platform-icon-android {
+    width: 1.35em;
+    height: 0.8em;
+    vertical-align: -0.06em;
+    color: var(--md-sys-color-primary);
+    display: inline-block;
+  }
+
+  .platform-icon-ios,
+  .platform-icon-apple {
+    width: 1.02em;
+    height: 1.02em;
+    vertical-align: -0.15em;
+    color: #1e293b;
+    display: inline-block;
+    transition: color 0.2s ease;
+  }
+
+  .dark .platform-icon-ios,
+  .dark .platform-icon-apple {
+    color: #f1f5f9;
+  }
+
+  .platform-icon-flutter {
+    width: 1.02em;
+    height: 1.02em;
+    vertical-align: -0.1em;
+    color: #027DFD;
+    display: inline-block;
+  }
+
+  .platform-icon-web {
+    color: var(--md-sys-color-primary);
+  }
+
+  .project-client {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+  }
+
+  .project-links,
+  .publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  /* M3 Tonal Button */
+  .project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--md-sys-shape-corner-full);
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      text-decoration: none;
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+  }
+
+  .project-btn-icon {
+    font-size: 0.7rem;
+  }
+
+  /* ==========================================================================
+     M3 Skills
+     ========================================================================== */
+  .skills-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  .skill-group {
+    margin-bottom: 0.875rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .skill-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--md-sys-color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  /* ==========================================================================
+     M3 References (Modern Endorsement Cards)
+     ========================================================================== */
+  .reference-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem 1rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem 1.5rem;
+    }
+  }
+
+  .reference-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .reference-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.2rem;
+    width: 100%;
+  }
+
+  .reference-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+    padding-top: 0.35rem;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .reference-role {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--md-sys-color-primary);
+    margin: 0;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .reference-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .reference-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.28rem 0.65rem;
+    border-radius: var(--md-sys-shape-corner-full);
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-on-surface-variant);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+    &:hover {
+      background-color: #0a66c2;
+      color: #ffffff;
+      border-color: #0a66c2;
+      transform: translateY(-1px);
+      box-shadow: var(--md-sys-elevation-2);
+      text-decoration: none;
+
+      .bi-linkedin {
+        color: #ffffff;
+      }
+    }
+
+    .bi-linkedin {
+      color: #0a66c2;
+      transition: color 0.2s ease;
+    }
+  }
+
+  .reference-ext-icon {
+    font-size: 0.65rem;
+    opacity: 0.8;
+  }
+
+  /* Dark mode references adjustments */
+  .dark .reference-role {
+    color: var(--md-sys-color-secondary);
+  }
+
+  .dark .reference-btn {
+    background-color: #262b27;
+    color: #dfe4dc;
+    border-color: #233e2e;
+  }
+
+  .dark .reference-btn .bi-linkedin {
+    color: #3ddc84;
+  }
+
+  .dark .reference-btn:hover {
+    background-color: #0a66c2;
+    color: #ffffff;
+    border-color: #0a66c2;
+  }
+
+  .dark .reference-btn:hover .bi-linkedin {
+    color: #ffffff;
+  }
+
+  /* ==========================================================================
+     M3 Studies & Publications
+     ========================================================================== */
+  .study-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    padding-bottom: 0.75rem;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .study-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .study-institution {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--md-sys-color-primary);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .study-period {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--md-sys-color-on-surface);
+    margin-top: 0.15rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .publication-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+
+
+  .publication-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    >i {
+      font-size: 0.75rem;
+    }
+  }
+
+  .publication-desc {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     Site Bottom Bar (Full width with side padding for corner radius finish)
+     ========================================================================== */
+  .site-bottom-bar-wrapper {
+    width: 100%;
+    margin-top: auto;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+
+  .site-bottom-bar {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.85rem 1rem;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    border-left: 1px solid var(--md-sys-color-outline-variant);
+    border-right: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-sys-shape-corner-l) var(--md-sys-shape-corner-l) 0 0;
+    background-color: #d8eedc;
+    color: #003922;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .bottom-bar-android {
+    position: absolute;
+    bottom: 100%;
+    left: 1.75rem;
+    line-height: 0;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .bottom-bar-android-img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  .bottom-bar-web {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bottom-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+
+  .bottom-bar-item {
+    display: inline-flex;
+    align-items: center;
+
+    > a {
+      color: #006c47;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+
+      &:hover {
+        color: #003922;
+        text-decoration: underline;
+      }
+    }
+
+    > span {
+      color: #003922;
+      font-weight: 600;
+    }
+  }
+
+  .bottom-bar-sep {
+    color: #006c47;
+    font-weight: 700;
+    opacity: 0.7;
+    user-select: none;
+  }
+
+  .bottom-bar-print {
+    display: none;
+  }
+
+  /* Dark Mode Bottom Bar (matching print dark mode colors) */
+  .dark .site-bottom-bar,
+  html.dark .site-bottom-bar {
+    background-color: #1d462d;
+    border-top: 1px solid #2d6240;
+    border-left: 1px solid #2d6240;
+    border-right: 1px solid #2d6240;
+    color: #ffffff;
+  }
+
+  .dark .bottom-bar-item > a,
+  html.dark .bottom-bar-item > a {
+    color: #ffffff;
+
+    &:hover {
+      color: #8df7b6;
+      text-decoration: underline;
+    }
+  }
+
+  .dark .bottom-bar-item > span,
+  html.dark .bottom-bar-item > span {
+    color: #ffffff;
+  }
+
+  .dark .bottom-bar-sep,
+  html.dark .bottom-bar-sep {
+    color: #ffffff;
+    opacity: 0.7;
+  }
+
+  /* ==========================================================================
+     Narrow Screen / Mobile Responsiveness (< 640px and < 540px)
+     ========================================================================== */
+  @media (max-width: 640px) {
+    .panel-body,
+    .panel-body-timeline {
+      padding: 0.5rem 0.85rem 1rem 0.85rem;
+    }
+
+    .accordion>p {
+      padding: 0.75rem 0.85rem;
+      min-height: 48px;
+    }
+
+    .timeline-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .timeline-right {
+      align-items: flex-start;
+      text-align: left;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.5rem;
+      width: 100%;
+    }
+
+    .timeline-location {
+      text-align: left;
+      padding-right: 0;
+      white-space: normal;
+    }
+
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .site-bottom-bar {
+      padding: 0.65rem 0.5rem;
+    }
+
+    .bottom-bar-content {
+      gap: 0.25rem 0.35rem;
+      font-size: clamp(0.55rem, 2.65vw, 0.8125rem);
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .bottom-bar-android {
+      left: 0.75rem;
+    }
+
+    .bottom-bar-android-img {
+      height: 28px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .lang-skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .quote-card {
+      padding: 0.65rem 0.75rem;
+    }
+
+    .site-bottom-bar-wrapper {
+      padding: 0 0.35rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .site-bottom-bar-wrapper {
+      padding: 0 0.25rem;
+    }
+
+    .site-bottom-bar {
+      padding: 0.5rem 0.25rem;
+    }
+
+    .bottom-bar-content {
+      gap: 0.15rem 0.25rem;
+      font-size: clamp(0.48rem, 2.75vw, 0.62rem);
+    }
+  }
+}

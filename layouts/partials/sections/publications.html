@@ -1,0 +1,50 @@
+<!-- 7. Publicaciones / Publications & Articles -->
+{{ if .Params.publications }}
+<div class="accordion-section section-publications">
+  <h2 class="accordion">
+    <p onclick="expandAccordion(this)">
+      <span class="accordion-header-lead">
+        <i class="bi bi-journal-richtext"></i>
+        <span>{{ i18n "publications_title" | default "Publications & Articles" }}</span>
+      </span>
+      <i class="bi bi-chevron-down accordion-chevron"></i>
+    </p>
+  </h2>
+  <div class="panel">
+    <div class="panel-body">
+      {{ range .Params.publications }}
+      <div class="timeline-card-compact">
+        <h4 class="publication-title">{{ .title | markdownify }}</h4>
+        <p class="publication-desc">{{ .details | markdownify }}</p>
+
+        {{ if or .url .github .links }}
+        <div class="publication-links">
+          {{ with .url }}
+          <a href="{{ . }}" target="_blank" rel="noopener" class="project-btn">
+            <i class="bi {{ if findRE "medium\\.com" . }}bi-medium{{ else }}bi-file-earmark-text{{ end }}"></i>
+            <span>{{ if findRE "medium\\.com" . }}Medium{{ else }}Article{{ end }}</span>
+            <i class="bi bi-box-arrow-up-right project-btn-icon"></i>
+          </a>
+          {{ end }}
+          {{ with .github }}
+          <a href="{{ . }}" target="_blank" rel="noopener" class="project-btn">
+            <i class="bi bi-github"></i>
+            <span>GitHub</span>
+            <i class="bi bi-box-arrow-up-right project-btn-icon"></i>
+          </a>
+          {{ end }}
+          {{ range .links }}
+          <a href="{{ .url }}" target="_blank" rel="noopener" class="project-btn">
+            <i class="bi {{ if findRE "github\\.com" .url }}bi-github{{ else if findRE "medium\\.com" .url }}bi-medium{{ else }}bi-link-45deg{{ end }}"></i>
+            <span>{{ .name }}</span>
+            <i class="bi bi-box-arrow-up-right project-btn-icon"></i>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

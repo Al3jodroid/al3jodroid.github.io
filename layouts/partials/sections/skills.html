@@ -1,0 +1,41 @@
+<!-- 4. Habilidades y Competencias / Skills & Highlights -->
+{{ if or .Params.skills .Params.skills_summary }}
+<div class="accordion-section">
+  <h2 class="accordion">
+    <p onclick="expandAccordion(this)">
+      <span class="accordion-header-lead">
+        <i class="bi bi-list-check"></i>
+        <span>{{ i18n "skills_title" | default "Skills & Highlights" }}</span>
+      </span>
+      <i class="bi bi-chevron-down accordion-chevron"></i>
+    </p>
+  </h2>
+  <div class="panel" id="skill-panel">
+    <div class="panel-body">
+      {{ if .Params.skills_summary }}
+      <div class="skills-summary">
+        {{ range .Params.skills_summary }}
+        <p class="bullet-item">
+          <span class="bullet-arrow">&rsaquo;</span>
+          <span>{{ . | markdownify }}</span>
+        </p>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ range .Params.skills }}
+      <div class="skill-group">
+        <h5 class="skill-category">{{ .category }}</h5>
+        <div class="skill-pill-list">
+          {{ range .items }}
+          <span class="skill-pill">
+            {{ . }}
+          </span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

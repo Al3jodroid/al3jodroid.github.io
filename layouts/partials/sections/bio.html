@@ -1,0 +1,11 @@
+<!-- About Me Card -->
+{{ with .Params.bio }}
+<div class="about-card">
+  <h3 class="card-heading">
+    <i class="bi bi-person-fill"></i> {{ i18n "about_title" | default "About Me" }}
+  </h3>
+  <p class="bio-text">
+    {{ . | markdownify }}
+  </p>
+</div>
+{{ end }}

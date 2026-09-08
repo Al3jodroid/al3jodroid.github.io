@@ -1,0 +1,44 @@
+<!-- 2. Experiencia Laboral / Job Experience -->
+{{ if .Params.experience }}
+<div class="accordion-section section-experience">
+  <h2 class="accordion">
+    <p onclick="expandAccordion(this)">
+      <span class="accordion-header-lead">
+        <i class="bi bi-briefcase-fill"></i>
+        <span>{{ i18n "experience_title" | default "Job Experience" }}</span>
+      </span>
+      <i class="bi bi-chevron-down accordion-chevron"></i>
+    </p>
+  </h2>
+  <div class="panel">
+    <div class="panel-body-timeline">
+      {{ range .Params.experience }}
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-left">
+            <h4 class="timeline-title">{{ .company }}</h4>
+            <p class="timeline-subtitle">{{ .role }}</p>
+          </div>
+          <div class="timeline-right">
+            <span class="timeline-badge">{{ .period }}</span>
+            {{ with .location }}
+            <p class="timeline-location">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <p class="timeline-desc">
+          {{ .details | markdownify }}
+        </p>
+        {{ if .tech }}
+        <div class="tech-pills-wrap">
+          {{ range .tech }}
+          <span class="tech-pill">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

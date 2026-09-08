@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Hugo build & cache
+public/
+resources/_gen/
+.hugo_build.lock
+
+# macOS / OS metadata
+.DS_Store
+Thumbs.db
