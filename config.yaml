@@ -49,7 +49,7 @@ params:
     showAttribute: false
     singlePage: false
   footer:
-    author_url: "https://github.com/Al3jodroid"
+    author_url: "https://github.com/Al3jodroid/al3jodroid.github.io"
     hosting_url: "https://pages.github.com"
     framework_url: "https://gohugo.io"
     cv_web_url: "https://al3jodroid.github.io/"

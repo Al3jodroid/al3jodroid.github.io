@@ -252,15 +252,10 @@ references:
   - name: "Luis Javier Torres"
     role: "Specialized Technology Principal Android & Flutter"
     linkedin: "https://www.linkedin.com/in/luisjtorres/"
+  - name: "Sebastian Barbosa"
+    role: "Diseñador Grafico"
+    linkedin: "https://www.linkedin.com/in/sebastian-barbosa-5547452b/"
   - name: "Isabel Madrigal Vargas"
     role: "Product Owner / Scrum Master"
     linkedin: "https://www.linkedin.com/in/isabelmadrigalv/"
-  - name: "Johanna Martinez"
-    role: "Administradora de Empresas"
-    linkedin: "https://www.linkedin.com/in/johanna-mart%C3%ADnez-676783151/"
-  - name: "Eduardo Vasquez"
-    role: "Engineer Manager"
-    linkedin: "https://www.linkedin.com/in/eduardovasquezcuadros/"
-
-
 ---
