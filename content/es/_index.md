@@ -139,6 +139,7 @@ experience:
 
 projects:
   - title: "Credomatic BAC App"
+    icon: "images/apps/bac-credomatic.png"
     client: "Banco Autónomo de Costa Rica"
     platforms: ["android", "ios"]
     description: "Migración con tecnología multiplataforma **Flutter** para el Banco Autónomo de Costa Rica (Guatemala, El Salvador y Costa Rica) en la aplicación de banca móvil para **Android** e iOS."
@@ -150,6 +151,7 @@ projects:
         url: "https://apps.apple.com/cr/app/banca-m%C3%B3vil-bac/id465508552"
 
   - title: "Disney DORMS"
+    icon: "images/apps/disney-dorms.png"
     client: "Disney Parks"
     platforms: ["web"]
     description: "Migración de tecnología jQuery a web **Flutter**, permitiendo un sistema mantenible y escalable para el Sistema de Gestión de Residentes en el sitio de Disney."
@@ -159,6 +161,7 @@ projects:
         url: "https://dorms.disney.com"
 
   - title: "Achievers Client App"
+    icon: "images/apps/achievers.png"
     client: "Achievers"
     platforms: ["android"]
     description: "Migración de vistas clásicas en XML al kit de herramientas Jetpack Compose, asegurando la coexistencia limpia entre ambos paradigmas y componentes Compose."
@@ -168,6 +171,7 @@ projects:
         url: "https://play.google.com/store/apps/details?id=com.achievers.client"
 
   - title: "Xpoint - Tecnologías de Geolocalización"
+    icon: "images/apps/xpoint.png"
     client: "Xpoint"
     platforms: ["android", "ios"]
     description: "Mantenimiento y desarrollo de la aplicación y SDK en **Android**/iOS para servicios de geolocalización de alta precisión para eGambling y eSports."
@@ -179,6 +183,7 @@ projects:
         url: "https://apps.apple.com/us/app/xpoint-verify/id1588866181"
 
   - title: "OnBoarding PayPal y Venmo"
+    icon: "images/apps/paypal.png"
     client: "PayPal y Venmo"
     platforms: ["android"]
     description: "Desarrollo del nuevo flujo de OnBoarding e incorporación de usuarios en las aplicaciones móviles de **Android** para productos PayPal y Venmo."
@@ -190,6 +195,7 @@ projects:
         url: "https://play.google.com/store/apps/details?id=com.venmo"
 
   - title: "Shop Disney"
+    icon: "images/apps/shop-disney.png"
     client: "The Walt Disney Company"
     platforms: ["android"]
     description: "Mantenimiento de la aplicación móvil de compras y productos relacionados con los parques de Disney."
@@ -199,6 +205,7 @@ projects:
         url: "https://play.google.com/store/apps/details?id=com.disney.disneystore_goo"
 
   - title: "StubHub - Entradas para Eventos y Deportes"
+    icon: "images/apps/stubhub.png"
     client: "StubHub / Globant"
     platforms: ["android"]
     description: "Aplicación de compra de boletos para eventos mundiales de entretenimiento, automatización de procesos de CI/CD con Jenkins y Fastlane."

@@ -48,17 +48,26 @@
           <p class="project-desc">
             {{ .description | markdownify }}
           </p>
-          <!-- Store / Web Links -->
-          {{ if .links }}
-          <div class="project-links">
-            {{ range .links }}
-            <a href="{{ .url }}" target="_blank" rel="noopener" class="project-btn">
-              <i class="bi bi-box-arrow-up-right project-btn-icon"></i>
-              <span>{{ .name }}</span>
-            </a>
+          <div class="project-footer">
+            {{ if .links }}
+            <div class="project-links">
+              {{ range .links }}
+              <a href="{{ .url }}" target="_blank" rel="noopener" class="project-btn">
+                <i class="bi bi-box-arrow-up-right project-btn-icon"></i>
+                <span>{{ .name }}</span>
+              </a>
+              {{ end }}
+            </div>
+            {{ else }}
+            <div class="project-links-placeholder"></div>
+            {{ end }}
+            {{ $projectTitle := .title }}
+            {{ with .icon }}
+            <div class="project-app-icon-badge" aria-hidden="true">
+              <img src="{{ . | relURL }}" alt="{{ $projectTitle }} icon" class="project-app-icon" width="56" height="56" loading="eager" decoding="sync" />
+            </div>
             {{ end }}
           </div>
-          {{ end }}
         </div>
         {{ end }}
       </div>

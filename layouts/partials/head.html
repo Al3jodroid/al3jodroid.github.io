@@ -37,6 +37,11 @@
     rel="stylesheet"
   />
 
+  <!-- Preload App Icons for Print & Web -->
+  {{ range slice "bac-credomatic.png" "disney-dorms.png" "achievers.png" "xpoint.png" "paypal.png" "shop-disney.png" "stubhub.png" }}
+  <link rel="preload" as="image" href="{{ printf "images/apps/%s" . | relURL }}" />
+  {{ end }}
+
   {{ $css := resources.Get "main.css" | css.TailwindCSS }}
   {{ if hugo.IsProduction }}
     {{ with $css | minify | fingerprint }}

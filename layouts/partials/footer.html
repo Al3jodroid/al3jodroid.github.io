@@ -14,25 +14,14 @@
   <!-- Web Mode Content -->
   <div class="bottom-bar-web">
     <div class="bottom-bar-content">
-      {{ $authorUrl := .Site.Params.footer.author_url }}
-      {{ $hostingUrl := .Site.Params.footer.hosting_url }}
+      {{ $hostingUrl := .Site.Params.footer.hosting_url | default .Site.Params.footer.author_url }}
       {{ $frameworkUrl := .Site.Params.footer.framework_url }}
-
-      <span class="bottom-bar-item bottom-bar-author">
-        {{ if $authorUrl }}
-          <a href="{{ $authorUrl }}" target="_blank" rel="noopener">{{ i18n "footer_author" | default "Al3jodroid" }}</a>
-        {{ else }}
-          <span>{{ i18n "footer_author" | default "Al3jodroid" }}</span>
-        {{ end }}
-      </span>
-
-      <span class="bottom-bar-sep">&middot;</span>
 
       <span class="bottom-bar-item bottom-bar-hosting">
         {{ if $hostingUrl }}
-          <a href="{{ $hostingUrl }}" target="_blank" rel="noopener">{{ i18n "footer_hosting" | default "Hosted in GitHub Pages" }}</a>
+          <a href="{{ $hostingUrl }}" target="_blank" rel="noopener">{{ i18n "footer_hosting" | default "Hosted in GitHub" }}</a>
         {{ else }}
-          <span>{{ i18n "footer_hosting" | default "Hosted in GitHub Pages" }}</span>
+          <span>{{ i18n "footer_hosting" | default "Hosted in GitHub" }}</span>
         {{ end }}
       </span>
 

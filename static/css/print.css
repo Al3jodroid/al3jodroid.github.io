@@ -62,25 +62,25 @@
     display: contents !important;
   }
 
-  /* Fixed Bottom Bar across all pages in print (Aligned with 0.30in side margins of content) */
+  /* Fixed Bottom Bar across all pages in print (Aligned with 0.5in side margins of content) */
   .site-bottom-bar {
     display: block !important;
     position: fixed !important;
     bottom: 0 !important;
-    left: 0.30in !important;
-    right: 0.30in !important;
-    width: calc(100% - 0.60in) !important;
-    max-width: calc(100% - 0.60in) !important;
+    left: 0.5in !important;
+    right: 0.5in !important;
+    width: calc(100% - 1.0in) !important;
+    max-width: calc(100% - 1.0in) !important;
     margin: 0 !important;
-    padding: 0.85rem 1rem !important;
+    padding: 0.55rem 1rem !important;
     box-sizing: border-box !important;
-    background-color: #c6e6cd !important;
-    background: #c6e6cd !important;
-    border-top: 1px solid #a8d5b2 !important;
-    border-right: 1px solid #a8d5b2 !important;
-    border-left: 1px solid #a8d5b2 !important;
+    background-color: #e2f0e5 !important;
+    background: #e2f0e5 !important;
+    border-top: 1px solid #b7d6bf !important;
+    border-right: 1px solid #b7d6bf !important;
+    border-left: 1px solid #b7d6bf !important;
     border-bottom: none !important;
-    border-radius: 12px 12px 0 0 !important;
+    border-radius: 10px 10px 0 0 !important;
     z-index: 9999 !important;
     text-align: center !important;
   }
@@ -97,7 +97,7 @@
 
   .bottom-bar-android-img {
     display: block !important;
-    height: 0.32in !important;
+    height: 0.26in !important;
     width: auto !important;
   }
 
@@ -106,18 +106,20 @@
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    font-size: 0.875rem !important;
+    font-size: 7.8pt !important;
     font-weight: 500 !important;
-    color: #003922 !important;
-    line-height: 1.4 !important;
+    letter-spacing: 0.015em !important;
+    color: #145338 !important;
+    line-height: 1.35 !important;
     text-align: center !important;
   }
 
   .bottom-bar-print a,
   .bottom-bar-print span {
-    color: #003922 !important;
+    font-size: inherit !important;
+    color: #145338 !important;
     text-decoration: none !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     text-align: center !important;
   }
 
@@ -145,7 +147,7 @@
     gap: 0.85rem !important;
     break-before: page !important;
     page-break-before: always !important;
-    padding-top: 0.22in !important;
+    padding-top: 0.42in !important;
   }
 
   .page2-print-main,
@@ -154,7 +156,7 @@
     flex-direction: column !important;
     break-before: page !important;
     page-break-before: always !important;
-    padding-top: 0.22in !important;
+    padding-top: 0.42in !important;
   }
 
   .section-experience {
@@ -170,7 +172,7 @@
     gap: 1.0rem !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0.3in 0.30in 0.3in 0.30in !important;
+    padding: 0.5in 0.5in 0.30in 0.5in !important;
     margin: 0 !important;
     box-sizing: border-box !important;
   }
@@ -253,8 +255,9 @@
   .quote-card {
     container-type: inline-size !important;
     border-radius: 12px !important;
-    padding: 0.45rem 0.65rem !important;
+    padding: 0.55rem 0.95rem !important;
     text-align: right !important;
+    box-sizing: border-box !important;
     overflow: hidden !important;
   }
 
@@ -627,15 +630,19 @@
   }
 
   .quote-text {
-    font-size: 0.76rem !important;
-    font-size: clamp(0.66rem, 4.2cqw, 0.95rem) !important;
+    font-size: 0.74rem !important;
     font-style: italic !important;
     color: #404942 !important;
     line-height: 1.35 !important;
     margin: 0 !important;
+    padding: 0 0.15rem 0 0 !important;
     text-align: right !important;
-    white-space: nowrap !important;
-    display: inline-block !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    display: block !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Accordion Headers (Knowledge, Skills, Education, Experience, Projects, etc.): Accentuated Green Header */
@@ -1082,6 +1089,48 @@
     display: inline-flex !important;
     align-items: center !important;
     gap: 0.35rem !important;
+  }
+
+  .section-projects .project-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+    gap: 0.5rem !important;
+    margin-top: 0.08rem !important;
+    padding: 0 !important;
+  }
+
+  .section-projects .project-links-placeholder {
+    display: block !important;
+    flex: 1 !important;
+  }
+
+  .section-projects .project-app-icon-badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 6px !important;
+    border: 1px solid #dfe4dc !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 0 0 auto !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .section-projects .project-app-icon {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .section-projects .project-platforms {
@@ -1752,6 +1801,11 @@
     color: #3ddc84 !important;
   }
 
+  html.dark .section-projects .project-app-icon-badge,
+  .dark .section-projects .project-app-icon-badge {
+    border-color: #233e2e !important;
+  }
+
   html.dark .section-publications .timeline-card-compact,
   html.dark .section-publications .publication-card,
   .dark .section-publications .timeline-card-compact,
@@ -1839,13 +1893,13 @@
   /* Dark Mode Fixed Bottom Bar */
   html.dark .site-bottom-bar,
   .dark .site-bottom-bar {
-    background-color: #1d462d !important;
-    background: #1d462d !important;
-    border-top: 1px solid #2d6240 !important;
-    border-right: 1px solid #2d6240 !important;
-    border-left: 1px solid #2d6240 !important;
+    background-color: #173824 !important;
+    background: #173824 !important;
+    border-top: 1px solid #285437 !important;
+    border-right: 1px solid #285437 !important;
+    border-left: 1px solid #285437 !important;
     border-bottom: none !important;
-    border-radius: 12px 12px 0 0 !important;
+    border-radius: 10px 10px 0 0 !important;
   }
 
   html.dark .bottom-bar-print,
@@ -1854,6 +1908,7 @@
   .dark .bottom-bar-print,
   .dark .bottom-bar-print a,
   .dark .bottom-bar-print span {
-    color: #ffffff !important;
+    color: #d2e8db !important;
+    font-weight: 500 !important;
   }
 }
