@@ -14,12 +14,12 @@
     <div class="panel-body">
       {{ range .Params.other_studies }}
       <div class="study-card">
+        {{ with .period }}
+        <p class="study-period">{{ . }}</p>
+        {{ end }}
         <h4 class="study-title">{{ .title }}</h4>
         {{ with .institution }}
         <div class="study-institution">{{ . }}</div>
-        {{ end }}
-        {{ with .period }}
-        <p class="study-period">{{ . }}</p>
         {{ end }}
       </div>
       {{ end }}

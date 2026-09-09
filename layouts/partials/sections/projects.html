@@ -16,40 +16,48 @@
         {{ range .Params.projects }}
         <div class="project-box">
           <div class="project-header">
-            <h4 class="project-title">
-              <span class="project-platforms">
-                {{ $platforms := .platforms }}
-                {{ if not $platforms }}
-                  {{ $hasAndroid := false }}
-                  {{ $hasIos := false }}
-                  {{ $hasWeb := false }}
-                  {{ range .links }}
-                    {{ if or (findRE "play\\.google\\.com" .url) (findRE "(?i)android|google play" .name) }}{{ $hasAndroid = true }}{{ end }}
-                    {{ if or (findRE "apple\\.com" .url) (findRE "(?i)ios|app store|apple" .name) }}{{ $hasIos = true }}{{ end }}
-                    {{ if or (findRE "dorms\\.disney" .url) (findRE "(?i)web|portal" .name) }}{{ $hasWeb = true }}{{ end }}
-                  {{ end }}
-                  {{ if and (not $hasAndroid) (not $hasIos) (not $hasWeb) }}{{ $hasAndroid = true }}{{ end }}
-                  {{ if $hasAndroid }}{{ $platforms = $platforms | append "android" }}{{ end }}
-                  {{ if $hasIos }}{{ $platforms = $platforms | append "ios" }}{{ end }}
-                  {{ if $hasWeb }}{{ $platforms = $platforms | append "web" }}{{ end }}
-                {{ end }}
-                {{ range $platforms }}
-                  {{ if eq . "android" }}{{ partial "icons/android.html" (dict "class" "platform-icon-android" "title" "Android") }}{{ end }}
-                  {{ if or (eq . "ios") (eq . "apple") }}{{ partial "icons/ios.html" (dict "class" "platform-icon-ios" "title" "iOS") }}{{ end }}
-                  {{ if eq . "web" }}<i class="bi bi-globe platform-icon-web" title="Web"></i>{{ end }}
-                {{ end }}
-              </span>
-              <span>{{ .title }}</span>
-            </h4>
-            {{ with .client }}
-            <span class="project-client">{{ . }}</span>
+            {{ $projectTitle := .title }}
+            {{ with .icon }}
+            <div class="project-app-icon-badge" aria-hidden="true">
+              <img src="{{ . | relURL }}" alt="{{ $projectTitle }} icon" class="project-app-icon" width="56" height="56" loading="eager" decoding="sync" />
+            </div>
             {{ end }}
+            <div class="project-header-text">
+              <h4 class="project-title">
+                <span>{{ .title }}</span>
+                <span class="project-platforms">
+                  {{ $platforms := .platforms }}
+                  {{ if not $platforms }}
+                    {{ $hasAndroid := false }}
+                    {{ $hasIos := false }}
+                    {{ $hasWeb := false }}
+                    {{ range .links }}
+                      {{ if or (findRE "play\\.google\\.com" .url) (findRE "(?i)android|google play" .name) }}{{ $hasAndroid = true }}{{ end }}
+                      {{ if or (findRE "apple\\.com" .url) (findRE "(?i)ios|app store|apple" .name) }}{{ $hasIos = true }}{{ end }}
+                      {{ if or (findRE "dorms\\.disney" .url) (findRE "(?i)web|portal" .name) }}{{ $hasWeb = true }}{{ end }}
+                    {{ end }}
+                    {{ if and (not $hasAndroid) (not $hasIos) (not $hasWeb) }}{{ $hasAndroid = true }}{{ end }}
+                    {{ if $hasAndroid }}{{ $platforms = $platforms | append "android" }}{{ end }}
+                    {{ if $hasIos }}{{ $platforms = $platforms | append "ios" }}{{ end }}
+                    {{ if $hasWeb }}{{ $platforms = $platforms | append "web" }}{{ end }}
+                  {{ end }}
+                  {{ range $platforms }}
+                    {{ if eq . "android" }}{{ partial "icons/android.html" (dict "class" "platform-icon-android" "title" "Android") }}{{ end }}
+                    {{ if or (eq . "ios") (eq . "apple") }}{{ partial "icons/ios.html" (dict "class" "platform-icon-ios" "title" "iOS") }}{{ end }}
+                    {{ if eq . "web" }}<i class="bi bi-globe platform-icon-web" title="Web"></i>{{ end }}
+                  {{ end }}
+                </span>
+              </h4>
+              {{ with .client }}
+              <span class="project-client">{{ . }}</span>
+              {{ end }}
+            </div>
           </div>
           <p class="project-desc">
             {{ .description | markdownify }}
           </p>
+          {{ if .links }}
           <div class="project-footer">
-            {{ if .links }}
             <div class="project-links">
               {{ range .links }}
               <a href="{{ .url }}" target="_blank" rel="noopener" class="project-btn">
@@ -58,16 +66,8 @@
               </a>
               {{ end }}
             </div>
-            {{ else }}
-            <div class="project-links-placeholder"></div>
-            {{ end }}
-            {{ $projectTitle := .title }}
-            {{ with .icon }}
-            <div class="project-app-icon-badge" aria-hidden="true">
-              <img src="{{ . | relURL }}" alt="{{ $projectTitle }} icon" class="project-app-icon" width="56" height="56" loading="eager" decoding="sync" />
-            </div>
-            {{ end }}
           </div>
+          {{ end }}
         </div>
         {{ end }}
       </div>

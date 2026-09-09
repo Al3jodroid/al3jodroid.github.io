@@ -77,14 +77,14 @@ experience:
     location: "Bogotá, D.C., Colombia"
     role: "Flutter Specialist / Architect"
     period: "Jan. 2025 – Jul. 2026"
-    details: "**Flutter** SDK, Dart, AI Integrations, **Android**, iOS and Web Apps."
+    details: "Technical leadership in migration and modernization of mobile and web applications using **Flutter** SDK, Dart, alongside Artificial Intelligence processes and tools for **Android**, iOS, and Web applications."
     tech: ["Flutter SDK", "Dart", "AI Integrations", "GitHub", "Android", "iOS", "Web Apps"]
 
   - company: "Achievers"
     location: "(Remote) Bogotá, D.C., Colombia"
     role: "Senior Android Engineer"
     period: "Jan. 2024 – Jan. 2025"
-    details: "Migration from classic XML definitions to new implementations of the Jetpack Compose toolkit, maintaining current features while allowing seamless coexistence between the legacy UI paradigm and new Compose components."
+    details: "Migration from classic XML UI to new implementations of Jetpack Compose, maintaining current features while allowing seamless coexistence between legacy UI paradigm and new Compose components."
     tech: ["Android SDK", "Kotlin", "Jetpack Compose", "GitHub", "GraphQL", "Firebase", "Figma"]
 
   - company: "10Pearls"
@@ -112,7 +112,7 @@ experience:
     location: "Bogotá, D.C., Colombia"
     role: "Senior Android Engineer"
     period: "Jan. 2020 – Aug. 2021"
-    details: "Provided advanced architectural consulting and mobile best practices for global clients. Integrated IoT products, hybrid **Flutter** modules, and Unity (C#) interactive experiences within native **Android** codebases."
+    details: "Provided advanced architectural consulting and mobile best practices for global clients, hybrid **Flutter** modules, and Unity (C#) interactive experiences within native **Android** codebases."
     tech: ["Android SDK", "Flutter", "Dart", "Java", "GitHub", "Kotlin", "Jetpack", "Unity", "Figma"]
 
   - company: "Ix.co / Bydrec"
@@ -133,7 +133,7 @@ experience:
     location: "Bogotá, D.C., Colombia"
     role: "Senior Android Developer"
     period: "Mar. 2014 – Feb. 2018"
-    details: "Led the design and development from scratch of version 3.0 of the native **Android** app using Kotlin, incorporating Material Design guidelines, GPS geolocation, secure OAuth 1.0 backend communications, and conversion rate (CVR) optimization across LATAM."
+    details: "Led the architecture and greenfield implementation of the native Kotlin app (v3.0), integrating Material Design, GPS, OAuth 1.0, and driving conversion rate optimization (CVR) across LATAM."
     tech: ["Android SDK", "Java", "GitHub", "Kotlin", "OAuth", "GPS", "Firebase", "Facebook API"]
 
 projects:
@@ -214,11 +214,11 @@ projects:
         url: "https://play.google.com/store/apps/details?id=com.stubhub"
 
 education:
-  - degree: "Professional Computing Engineer"
+  - degree: "Professional Computing Science"
     institution: "Escuela Colombiana de Ingeniería Julio Garavito"
     period: "2003 – 2009"
     details: "(Degree received March 27, 2010) Graduated with emphasis in software quality and software engineering processes."
-  - degree: "High School Diploma with emphasis in Banking & Finance"
+  - degree: "High School Diploma, emphasis Banking & Finance"
     institution: "Colegio Fundación Colombia"
     period: "Class 2002"
     details: "Focused on banking, administration, and financial mathematics."
@@ -241,13 +241,13 @@ other_studies:
     period: "26 – 28 October 2016"
 
 publications:
-  - title: "A Tale of Two Technologies: Android (Series)"
-    details: "Part of a curated 10-article list comparing Google's modern mobile ecosystems. A comprehensive deep-dive into **Android** development: Clean Architecture, Jetpack Compose UI, reactive state management using sealed interfaces, Dagger Hilt dependency injection, and asynchronous networking with Kotlin Coroutines and Retrofit."
+  - title: "A Tale of Two Technologies: App Android"
+    details: "A curated 10-article list comparing Google's modern mobile ecosystems. A comprehensive deep-dive into **Android** development: Clean Architecture, Jetpack Compose UI, reactive state management using sealed interfaces, Dagger Hilt dependency injection, and asynchronous networking with Kotlin Coroutines and Retrofit."
     url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
     github: "https://github.com/Al3jodroid/pokemon-android"
 
-  - title: "A Tale of Two Technologies: Flutter (Series)"
-    details: "Part of a curated 10-article list comparing Google's modern mobile ecosystems. An in-depth exploration of multiplatform **Flutter** architecture: building decoupled modular widgets, reactive state management with MultiProvider, asynchronous networking with Dart, and maintaining architectural symmetry with native Android patterns."
+  - title: "A Tale of Two Technologies: App Flutter"
+    details: "A curated 10-article list comparing Google's modern mobile ecosystems. An in-depth exploration of multiplatform **Flutter** architecture: building decoupled modular widgets, reactive state management with MultiProvider, asynchronous networking with Dart, and maintaining architectural symmetry with native Android patterns."
     url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
     github: "https://github.com/Al3jodroid/pokemon-flutter"
 

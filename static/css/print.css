@@ -62,15 +62,15 @@
     display: contents !important;
   }
 
-  /* Fixed Bottom Bar across all pages in print (Aligned with 0.5in side margins of content) */
+  /* Fixed Bottom Bar across all pages in print (Aligned with 0.4in side margins of content) */
   .site-bottom-bar {
     display: block !important;
     position: fixed !important;
     bottom: 0 !important;
-    left: 0.5in !important;
-    right: 0.5in !important;
-    width: calc(100% - 1.0in) !important;
-    max-width: calc(100% - 1.0in) !important;
+    left: 0.4in !important;
+    right: 0.4in !important;
+    width: calc(100% - 0.8in) !important;
+    max-width: calc(100% - 0.8in) !important;
     margin: 0 !important;
     padding: 0.55rem 1rem !important;
     box-sizing: border-box !important;
@@ -106,7 +106,7 @@
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    font-size: 7.8pt !important;
+    font-size: 7.2pt !important;
     font-weight: 500 !important;
     letter-spacing: 0.015em !important;
     color: #145338 !important;
@@ -123,10 +123,11 @@
     text-align: center !important;
   }
 
-  /* 3. Hide web-only rest sections and web education in print */
+  /* 3. Hide web-only rest sections, mobile layouts and web education in print */
   .cv-rest-sections,
   .cv-web-rest,
-  .education-web-only {
+  .education-web-only,
+  .mobile-only {
     display: none !important;
   }
 
@@ -147,7 +148,7 @@
     gap: 0.85rem !important;
     break-before: page !important;
     page-break-before: always !important;
-    padding-top: 0.42in !important;
+    padding-top: 0.40in !important;
   }
 
   .page2-print-main,
@@ -156,7 +157,7 @@
     flex-direction: column !important;
     break-before: page !important;
     page-break-before: always !important;
-    padding-top: 0.42in !important;
+    padding-top: 0.40in !important;
   }
 
   .section-experience {
@@ -172,7 +173,7 @@
     gap: 1.0rem !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0.5in 0.5in 0.30in 0.5in !important;
+    padding: 0.4in !important;
     margin: 0 !important;
     box-sizing: border-box !important;
   }
@@ -478,8 +479,8 @@
   .card-heading {
     font-size: 0.875rem !important;
     font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
     color: #006c47 !important;
     display: flex !important;
     align-items: center !important;
@@ -706,8 +707,8 @@
     display: flex !important;
     flex-direction: column !important;
     gap: 0.18rem !important;
-    padding-top: 0.45rem !important;
-    padding-bottom: 0.45rem !important;
+    padding-top: 0.62rem !important;
+    padding-bottom: 0.62rem !important;
     border-bottom: 1px solid #dfe4dc !important;
     background: transparent !important;
     background-color: transparent !important;
@@ -717,12 +718,12 @@
   }
 
   .cv-main .timeline-card:first-child {
-    padding-top: 0 !important;
+    padding-top: 0.15rem !important;
   }
 
   .cv-main .timeline-card:last-child {
     border-bottom: none !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 0.15rem !important;
   }
 
   .timeline-header,
@@ -788,14 +789,15 @@
     display: inline-block !important;
   }
 
-  .cv-main .timeline-location {
-    font-size: 0.73rem !important;
-    color: #404942 !important;
-    margin: 0 !important;
-    padding-right: 0.45rem !important;
-    line-height: 1.25 !important;
-    text-align: right !important;
-    white-space: nowrap !important;
+  /* Job Experience in Print: Location next to company name */
+  .timeline-location {
+    display: inline !important;
+    font-size: 0.76rem !important;
+    font-weight: 400 !important;
+    color: #555f56 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
 
   .cv-main .timeline-muted {
@@ -838,7 +840,7 @@
     flex-direction: column !important;
     gap: 0.15rem !important;
     margin-bottom: 0 !important;
-    padding: 0.35rem 0 0 0 !important;
+    padding: 0.55rem 0 0.45rem 0 !important;
     background-color: transparent !important;
     background: transparent !important;
     border-radius: 0 !important;
@@ -850,6 +852,85 @@
   .timeline-card-compact:first-child {
     border-top: none !important;
     padding-top: 0 !important;
+  }
+
+  .timeline-card-compact:last-child {
+    padding-bottom: 0 !important;
+  }
+
+  /* Education in Print: Same style as Web (Degree/Institution on left, Date on right) */
+  .education-header,
+  .timeline-card-compact .timeline-header,
+  .section-education .timeline-header,
+  .education-print-only .timeline-header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 0.35rem 0.5rem !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .education-content,
+  .timeline-card-compact .timeline-left,
+  .section-education .timeline-left,
+  .education-print-only .timeline-left {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.08rem !important;
+    min-width: 0 !important;
+    flex: 1 1 0px !important;
+    order: 0 !important;
+  }
+
+  .education-content .timeline-title,
+  .section-education .timeline-title {
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .education-institution-web {
+    display: none !important;
+  }
+
+  .education-institution-print {
+    display: block !important;
+    width: 100% !important;
+    font-size: 0.76rem !important;
+    color: #006c47 !important;
+    font-weight: 500 !important;
+    margin: 0.08rem 0 0 0 !important;
+    line-height: 1.25 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .education-content .timeline-subtitle,
+  .section-education .timeline-subtitle {
+    margin: 0 !important;
+    line-height: 1.25 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .education-date,
+  .timeline-card-compact .timeline-right,
+  .section-education .timeline-right,
+  .education-print-only .timeline-right {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+    order: 0 !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
   }
 
   .timeline-title {
@@ -879,8 +960,7 @@
   }
 
   /* Other Studies inside Sidebar - No internal cards */
-  .section-other-studies .accordion-chevron,
-  .bullet-arrow {
+  .section-other-studies .accordion-chevron {
     display: none !important;
   }
 
@@ -889,7 +969,7 @@
     flex-direction: column !important;
     gap: 0.12rem !important;
     margin-bottom: 0 !important;
-    padding: 0.32rem 0 0 0 !important;
+    padding: 0.55rem 0 0.45rem 0 !important;
     background-color: transparent !important;
     background: transparent !important;
     border-radius: 0 !important;
@@ -901,6 +981,10 @@
   .study-card:first-child {
     border-top: none !important;
     padding-top: 0 !important;
+  }
+
+  .study-card:last-child {
+    padding-bottom: 0 !important;
   }
 
   .study-title {
@@ -955,10 +1039,10 @@
   }
 
   .subheading {
-    font-size: 0.78rem !important;
+    font-size: 0.80rem !important;
     font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
     color: #006c47 !important;
     display: flex !important;
     align-items: center !important;
@@ -985,11 +1069,13 @@
   }
 
   .bullet-arrow {
+    display: inline-block !important;
     color: #006c47 !important;
     font-weight: 700 !important;
     font-size: 0.92rem !important;
     line-height: 1.2 !important;
     flex-shrink: 0 !important;
+    user-select: none !important;
   }
 
   /* Skills & Highlights */
@@ -1012,10 +1098,10 @@
   }
 
   .skill-category {
-    font-size: 0.76rem !important;
+    font-size: 0.78rem !important;
     font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
     color: #006c47 !important;
     margin-bottom: 0.18rem !important;
   }
@@ -1053,8 +1139,8 @@
     display: flex !important;
     flex-direction: column !important;
     gap: 0.18rem !important;
-    padding-top: 0.42rem !important;
-    padding-bottom: 0.42rem !important;
+    padding-top: 0.62rem !important;
+    padding-bottom: 0.62rem !important;
     border-bottom: 1px solid #dfe4dc !important;
     background: transparent !important;
     background-color: transparent !important;
@@ -1064,20 +1150,30 @@
   }
 
   .section-projects .project-box:first-child {
-    padding-top: 0 !important;
+    padding-top: 0.15rem !important;
   }
 
   .section-projects .project-box:last-child {
     border-bottom: none !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 0.15rem !important;
   }
 
   .section-projects .project-header {
     display: flex !important;
-    justify-content: space-between !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
     align-items: flex-start !important;
     width: 100% !important;
-    gap: 0.5rem !important;
+    gap: 0.55rem !important;
+  }
+
+  .section-projects .project-header-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.12rem !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
   }
 
   .section-projects .project-title {
@@ -1086,23 +1182,26 @@
     color: #181d19 !important;
     margin: 0 !important;
     line-height: 1.25 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.35rem !important;
+    display: block !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
 
   .section-projects .project-footer {
     display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
     gap: 0.5rem !important;
     margin-top: 0.08rem !important;
     padding: 0 !important;
   }
 
-  .section-projects .project-links-placeholder {
-    display: block !important;
-    flex: 1 !important;
+  .section-projects .project-links {
+    display: flex !important;
+    justify-content: flex-end !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
   }
 
   .section-projects .project-app-icon-badge {
@@ -1110,13 +1209,13 @@
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    width: 38px !important;
-    height: 38px !important;
+    width: 36px !important;
+    height: 36px !important;
     border-radius: 6px !important;
     border: 1px solid #dfe4dc !important;
     overflow: hidden !important;
     padding: 0 !important;
-    margin: 0 0 0 auto !important;
+    margin: 0 !important;
     background-color: transparent !important;
     box-shadow: none !important;
     -webkit-print-color-adjust: exact !important;
@@ -1136,7 +1235,12 @@
   .section-projects .project-platforms {
     display: inline-flex !important;
     align-items: center !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    top: -0.10em !important;
     gap: 0.25rem !important;
+    margin-left: 0.25rem !important;
+    white-space: nowrap !important;
   }
 
   .section-projects .platform-icon-android,
@@ -1152,6 +1256,15 @@
     color: #006c47 !important;
   }
 
+  .section-projects .platform-icon-web {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    position: relative !important;
+    top: 0.06em !important;
+  }
+
   .section-projects .platform-icon-ios,
   .section-projects .platform-icon-apple {
     color: #1e293b !important;
@@ -1161,8 +1274,8 @@
     font-size: 0.76rem !important;
     font-weight: 600 !important;
     color: #006c47 !important;
-    text-align: right !important;
-    white-space: nowrap !important;
+    text-align: left !important;
+    white-space: normal !important;
     line-height: 1.25 !important;
   }
 
@@ -1233,7 +1346,7 @@
     display: flex !important;
     flex-direction: column !important;
     gap: 0.15rem !important;
-    padding: 0.32rem 0 !important;
+    padding: 0.55rem 0 0.45rem 0 !important;
     border-top: 1px solid #dfe4dc !important;
     border-bottom: none !important;
     background: transparent !important;
@@ -1248,12 +1361,18 @@
     padding-top: 0 !important;
   }
 
+  .section-publications .timeline-card-compact:last-child {
+    padding-bottom: 0 !important;
+  }
+
   .section-publications .publication-title {
     font-size: 0.80rem !important;
     font-weight: 700 !important;
     color: #181d19 !important;
     margin: 0 !important;
     line-height: 1.25 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
 
   .section-publications .publication-desc {
@@ -1267,7 +1386,7 @@
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 0.25rem !important;
-    margin-top: 0.15rem !important;
+    margin-top: 0.35rem !important;
   }
 
   .section-publications .project-btn {
@@ -1307,7 +1426,7 @@
     display: flex !important;
     flex-direction: column !important;
     gap: 0.35rem !important;
-    padding: 0.38rem 0 !important;
+    padding: 0.55rem 0 !important;
     border: none !important;
     border-bottom: 1px solid #dfe4dc !important;
     border-radius: 0 !important;
@@ -1651,8 +1770,8 @@
     color: #3ddc84 !important;
   }
 
-  html.dark .cv-main .timeline-location,
-  .dark .cv-main .timeline-location {
+  html.dark .timeline-location,
+  .dark .timeline-location {
     color: #c0c9c0 !important;
   }
 
@@ -1701,7 +1820,9 @@
   }
 
   html.dark .timeline-card-compact .timeline-subtitle,
-  .dark .timeline-card-compact .timeline-subtitle {
+  .dark .timeline-card-compact .timeline-subtitle,
+  html.dark .education-institution-print,
+  .dark .education-institution-print {
     color: #3ddc84 !important;
   }
 

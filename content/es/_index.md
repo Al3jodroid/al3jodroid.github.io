@@ -78,8 +78,8 @@ experience:
     location: "Bogotá, D.C., Colombia"
     role: "Flutter Specialist / Architect"
     period: "Ene. 2025 – Jul. 2026"
-    details: "**Flutter** SDK, Dart, Integraciones con Inteligencia Artificial, aplicaciones para **Android**, iOS y Web."
-    tech: ["Flutter SDK", "Dart", "AI Integrations", "GitHub","Android", "iOS", "Web Apps"]
+    details: "Liderazgo técnico en migración y modernización de aplicaciones móviles y web mediante el uso de **Flutter** SDK, Dart, junto con procesos y herramientas de Inteligencia Artificial para aplicaciones para **Android**, iOS y Web."
+    tech: ["Flutter SDK", "Dart", "AI Integrations", "GitHub", "Android", "iOS", "Web Apps"]
 
   - company: "Achievers"
     location: "(Remoto) Bogotá, D.C., Colombia"
@@ -113,7 +113,7 @@ experience:
     location: "Bogotá, D.C., Colombia"
     role: "Senior Android Engineer"
     period: "Ene. 2020 – Ago. 2021"
-    details: "Consultoría de arquitectura móvil y mejores prácticas para marcas globales. Desarrollo nativo en **Android**, integraciones IoT, módulos híbridos en **Flutter** y experiencias interactivas en Unity (C#)."
+    details: "Consultoría de arquitectura móvil y mejores prácticas para marcas globales. Desarrollo nativo en **Android**, módulos híbridos en **Flutter** y experiencias interactivas en Unity (C#)."
     tech: ["Android SDK", "Flutter", "Dart", "Java", "GitHub", "Kotlin", "Jetpack", "Unity", "Figma"]
 
   - company: "Ix.co / Bydrec"
@@ -215,11 +215,11 @@ projects:
         url: "https://play.google.com/store/apps/details?id=com.stubhub"
 
 education:
-  - degree: "Ingeniero de Sistemas y Computación"
+  - degree: "Ingeniero de Sistemas"
     institution: "Escuela Colombiana de Ingeniería Julio Garavito"
     period: "2003 – 2009"
     details: "(Grado el 27 de Marzo de 2010) Graduado con énfasis en calidad de software y procesos de ingeniería estables."
-  - degree: "Bachillerato Comercial con Énfasis en Banca y Finanzas"
+  - degree: "Bachillerato Comercial Banca y Finanzas"
     institution: "Colegio Fundación Colombia"
     period: "Promoción 2002"
     details: "Enfoque curricular en banca, finanzas y administración."
@@ -242,13 +242,13 @@ other_studies:
     period: "26 al 28 de Octubre de 2016"
 
 publications:
-  - title: "Un cuento de dos tecnologías: Android (Serie)"
-    details: "Parte de una lista seleccionada de 10 artículos que compara los ecosistemas móviles modernos de Google. Análisis exhaustivo de desarrollo en **Android**: arquitectura limpia, interfaz con Jetpack Compose, gestión reactiva de estados con sealed interfaces, inyección de dependencias con Dagger Hilt y flujos asíncronos con Kotlin Coroutines y Retrofit."
+  - title: "Un cuento de dos tecnologías: App Android"
+    details: "Una lista de 10 artículos que compara los ecosistemas móviles modernos de Google. Análisis exhaustivo de desarrollo en **Android**: arquitectura limpia, interfaz con Jetpack Compose, gestión reactiva de estados con sealed interfaces, inyección de dependencias con Dagger Hilt y flujos asíncronos con Kotlin Coroutines y Retrofit."
     url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
     github: "https://github.com/Al3jodroid/pokemon-android"
 
-  - title: "Un cuento de dos tecnologías: Flutter (Serie)"
-    details: "Parte de una lista seleccionada de 10 artículos que compara los ecosistemas móviles modernos de Google. Guía y análisis en profundidad de arquitectura con **Flutter** y Dart: widgets modulares desacoplados, gestión reactiva de estados con MultiProvider, llamadas asíncronas de red y simetría arquitectónica frente a patrones nativos de Android."
+  - title: "Un cuento de dos tecnologías: App Flutter"
+    details: "Una lista de 10 artículos que compara los ecosistemas móviles modernos de Google. Guía y análisis en profundidad de arquitectura con **Flutter** y Dart: widgets modulares desacoplados, gestión reactiva de estados con MultiProvider, llamadas asíncronas de red y simetría arquitectónica frente a patrones nativos de Android."
     url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
     github: "https://github.com/Al3jodroid/pokemon-flutter"
 

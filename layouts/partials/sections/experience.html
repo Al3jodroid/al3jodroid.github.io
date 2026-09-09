@@ -16,14 +16,11 @@
       <div class="timeline-card">
         <div class="timeline-header">
           <div class="timeline-left">
-            <h4 class="timeline-title">{{ .company }}</h4>
+            <h4 class="timeline-title">{{ .company }}{{ with .location }}<span class="timeline-location">&nbsp;&middot;&nbsp;{{ . }}</span>{{ end }}</h4>
             <p class="timeline-subtitle">{{ .role }}</p>
           </div>
           <div class="timeline-right">
             <span class="timeline-badge">{{ .period }}</span>
-            {{ with .location }}
-            <p class="timeline-location">{{ . }}</p>
-            {{ end }}
           </div>
         </div>
         <p class="timeline-desc">

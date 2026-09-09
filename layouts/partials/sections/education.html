@@ -1,6 +1,6 @@
 <!-- 5. Educación / Education -->
 {{ if .Params.education }}
-<div class="accordion-section">
+<div class="accordion-section section-education">
   <h2 class="accordion">
     <p onclick="expandAccordion(this)">
       <span class="accordion-header-lead">
@@ -14,15 +14,16 @@
     <div class="panel-body">
       {{ range .Params.education }}
       <div class="timeline-card-compact">
-        <div class="timeline-header">
-          <div class="timeline-left">
+        <div class="timeline-header education-header">
+          <div class="education-content">
             <h4 class="timeline-title">{{ .degree }}</h4>
-            <div class="timeline-subtitle">{{ .institution }}</div>
+            <div class="timeline-subtitle education-institution-web">{{ .institution }}</div>
           </div>
-          <div class="timeline-right">
+          <div class="education-date">
             <span class="timeline-badge">{{ .period }}</span>
           </div>
         </div>
+        <div class="timeline-subtitle education-institution-print">{{ .institution }}</div>
         {{ with .details }}
         <p class="timeline-desc">{{ . | markdownify }}</p>
         {{ end }}
