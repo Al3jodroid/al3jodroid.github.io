@@ -42,7 +42,7 @@ languages:
 
 params:
   author: "Alejandro Rodríguez Salazar"
-  description: "Android && Flutter Specialist"
+  description: "Senior Mobile Engineer & Architect specializing in Android (Kotlin, Jetpack Compose) and Flutter (Dart). 12+ years crafting high-performance, intuitive mobile apps with Clean Architecture and AI-driven development."
   copyright: "Alejandro Rodríguez S."
   theme:
     mainTheme: dark

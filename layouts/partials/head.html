@@ -1,17 +1,135 @@
 <head>
-  {{ if .IsHome }}
-  <title>{{ .Site.Title }}</title>
-  {{ else }}
-  <title>{{ .Title }} - {{ .Site.Title }}</title>
-  {{ end }}
+  {{- $rawTitle := "" -}}
+  {{- if .Params.seo_title -}}
+    {{- $rawTitle = .Params.seo_title -}}
+  {{- else if and .Params.title .Params.role -}}
+    {{- $cleanRole := replace .Params.role "&&" "&" -}}
+    {{- $rawTitle = printf "%s | %s" .Params.title $cleanRole -}}
+  {{- else if .IsHome -}}
+    {{- $rawTitle = .Site.Title -}}
+  {{- else -}}
+    {{- $rawTitle = printf "%s - %s" .Title .Site.Title -}}
+  {{- end -}}
+  {{- $pageTitle := $rawTitle | plainify -}}
+
+  {{- $rawDesc := .Params.description | default .Site.Params.description | default .Params.bio -}}
+  {{- $desc := $rawDesc | plainify | chomp -}}
+  {{- $author := .Params.author | default .Site.Params.author -}}
+  {{- $canonical := .Permalink -}}
+
+  {{- $avatarPath := .Params.avatar | default "images/profile.jpg" -}}
+  {{- $ogImage := $avatarPath | absURL -}}
+
+  <title>{{ $pageTitle }}</title>
   <meta charset="UTF-8" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
   />
   <meta name="theme-color" content="#3DDC84" />
-  <meta name="description" content="{{ .Site.Params.description }}" />
-  <meta name="author" content="{{ .Site.Params.author }}" />
+  <meta name="description" content="{{ $desc }}" />
+  <meta name="author" content="{{ $author }}" />
+  <meta name="robots" content="index, follow" />
+
+  {{- with .Params.keywords }}
+  <meta name="keywords" content="{{ delimit . ", " }}" />
+  {{- else }}
+  <meta name="keywords" content="Alejandro Rodríguez, Android Specialist, Flutter Specialist, Mobile Architect, Kotlin, Jetpack Compose, Dart, Mobile Developer, Curriculum Vitae, Resume" />
+  {{- end }}
+
+  <link rel="canonical" href="{{ $canonical }}" />
+
+  {{- if .IsTranslated }}
+    {{- range .Translations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+    {{- end }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}" />
+  {{- end }}
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="{{ $canonical }}" />
+  <meta property="og:title" content="{{ $pageTitle }}" />
+  <meta property="og:description" content="{{ $desc }}" />
+  <meta property="og:image" content="{{ $ogImage }}" />
+  <meta property="og:image:secure_url" content="{{ $ogImage }}" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="{{ $pageTitle }}" />
+  <meta property="og:site_name" content="Alejandro Rodríguez S. | CV" />
+  <meta property="og:locale" content="{{ if eq .Site.Language.Lang "es" }}es_CO{{ else }}en_US{{ end }}" />
+  {{- if .IsTranslated }}
+    {{- range .Translations }}
+  <meta property="og:locale:alternate" content="{{ if eq .Language.Lang "es" }}es_CO{{ else }}en_US{{ end }}" />
+    {{- end }}
+  {{- end }}
+  <meta property="profile:first_name" content="Alejandro" />
+  <meta property="profile:last_name" content="Rodríguez" />
+  <meta property="profile:username" content="al3jodroid" />
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ $pageTitle }}" />
+  <meta name="twitter:description" content="{{ $desc }}" />
+  <meta name="twitter:image" content="{{ $ogImage }}" />
+  <meta name="twitter:image:alt" content="{{ $pageTitle }}" />
+  <meta name="twitter:site" content="@al3jodroid" />
+  <meta name="twitter:creator" content="@al3jodroid" />
+
+  <!-- Schema.org JSON-LD Structured Data for Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "{{ .Site.BaseURL }}#person",
+        "name": "Alejandro Rodríguez Salazar",
+        "alternateName": "Alejandro Rodríguez S.",
+        "jobTitle": "{{ replace (.Params.role | default "Senior Android & Flutter Specialist") "&&" "&" }}",
+        "description": "{{ $desc }}",
+        "image": "{{ $ogImage }}",
+        "url": "{{ .Site.BaseURL }}",
+        "sameAs": [
+          "https://www.linkedin.com/in/al3jodroid/",
+          "https://github.com/Al3jodroid",
+          "https://medium.com/@al3jodroid",
+          "https://g.dev/Al3jodroid"
+        ],
+        "knowsAbout": [
+          "Android SDK",
+          "Kotlin",
+          "Jetpack Compose",
+          "Flutter",
+          "Dart",
+          "Kotlin Multiplatform (KMP)",
+          "Clean Architecture",
+          "AI-Driven Development (AIDD)",
+          "Mobile Software Architecture"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bogotá, D.C.",
+          "addressCountry": "CO"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "{{ $canonical }}#webpage",
+        "url": "{{ $canonical }}",
+        "name": "{{ $pageTitle }}",
+        "description": "{{ $desc }}",
+        "inLanguage": "{{ .Site.Language.Lang }}",
+        "mainEntity": {
+          "@id": "{{ .Site.BaseURL }}#person"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" href="{{ "favicon.ico" | relURL }}?v=3" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}?v=3" />
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}?v=3" />
