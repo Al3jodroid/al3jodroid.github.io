@@ -17,8 +17,8 @@
   {{- $author := .Params.author | default .Site.Params.author -}}
   {{- $canonical := .Permalink -}}
 
-  {{- $avatarPath := .Params.avatar | default "images/profile.jpg" -}}
-  {{- $ogImage := $avatarPath | absURL -}}
+  {{- $previewPath := .Params.og_image | default .Params.droid_avatar | default "images/droid.jpg" -}}
+  {{- $ogImage := $previewPath | absURL -}}
 
   <title>{{ $pageTitle }}</title>
   <meta charset="UTF-8" />

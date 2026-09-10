@@ -7,6 +7,8 @@ keywords: ["Android Specialist", "Flutter Specialist", "Mobile Architect", "Kotl
 bio: "I am a software engineer specializing in mobile development since late 2011. Passionate about designing new ways for users to interact with their environment, with a strong preference on applications in applied science, news, education, lifestyle, and entertainment. I enjoy collaborating closely with designers, peer developers and product teams to craft intuitive, memorable interfaces with character."
 quote: "Everything is possible, the only thing required is time."
 avatar: "images/profile.jpg"
+droid_avatar: "images/droid.jpg"
+og_image: "images/droid.jpg"
 contact:
   email: "alejodroid.co@gmail.com"
   location: "Bogotá, D.C., Colombia"

@@ -8,6 +8,8 @@ bio: "Soy ingeniero de software especializado en desarrollo móvil desde finales
 
 quote: "Todo es posible, lo único que se requiere es tiempo."
 avatar: "images/profile.jpg"
+droid_avatar: "images/droid.jpg"
+og_image: "images/droid.jpg"
 contact:
   email: "alejodroid.co@gmail.com"
   location: "Bogotá, D.C., Colombia"
