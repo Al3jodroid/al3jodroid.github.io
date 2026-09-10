@@ -1,6 +1,6 @@
 ---
 title: "Alejandro Rodríguez S."
-seo_title: "Alejandro Rodríguez S. | Especialista Senior en Android & Flutter"
+seo_title: "Alejandro Rodríguez S. - Especialista Android && Flutter"
 role: "Android && Flutter Specialist"
 description: "Ingeniero de Software y Arquitecto Móvil especializado en Android (Kotlin, Jetpack Compose) y Flutter (Dart). Más de 14 años creando aplicaciones móviles de alto rendimiento, arquitectura limpia y flujos con IA."
 keywords: ["Especialista Android", "Especialista Flutter", "Arquitecto Móvil", "Kotlin", "Jetpack Compose", "Dart", "Clean Architecture", "AIDD", "KMP", "Hoja de Vida", "Curriculum Vitae", "Ingeniero de Software"]
@@ -9,7 +9,7 @@ bio: "Soy ingeniero de software especializado en desarrollo móvil desde finales
 quote: "Todo es posible, lo único que se requiere es tiempo."
 avatar: "images/profile.jpg"
 droid_avatar: "images/droid.jpg"
-og_image: "images/droid.jpg"
+og_image: "images/og-droid.jpg"
 contact:
   email: "alejodroid.co@gmail.com"
   location: "Bogotá, D.C., Colombia"
