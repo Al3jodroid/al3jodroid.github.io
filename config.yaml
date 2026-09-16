@@ -28,13 +28,13 @@ security:
 
 languages:
   en:
-    title: "CV Alejandro Rodríguez (EN)"
+    title: "CV_Alejandro_Rodríguez_EN"
     label: "English"
     locale: "en"
     weight: 1
     contentDir: content/en
   es:
-    title: "CV Alejandro Rodríguez (ES)"
+    title: "CV_Alejandro_Rodríguez_ES"
     label: "Español"
     locale: "es"
     weight: 2

@@ -174,139 +174,17 @@
     <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
   {{ end }}
 
+  <!-- Print Stylesheet (isolated print rules for Letter page, headers, layout) -->
   <link rel="stylesheet" href="{{ "css/print.css" | relURL }}" media="print" />
 
-  <script>
-    const expandAllForPrint = () => {
-      document.querySelectorAll(".panel").forEach((panel) => {
-        panel.style.maxHeight = "none";
-        panel.style.overflow = "visible";
-        panel.style.display = "block";
-      });
-    };
+  <!-- Target PDF filename taken directly from config.yaml languages.<lang>.title -->
+  <meta name="print-title" content="{{ .Site.Title }}" />
 
-    const restoreAfterPrint = () => {
-      document.querySelectorAll(".accordion-section").forEach((section) => {
-        const acc = section.querySelector(".accordion");
-        const panel = section.querySelector(".panel");
-        if (acc && panel) {
-          if (acc.classList.contains("active")) {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-            panel.style.overflow = "";
-            panel.style.display = "";
-          } else {
-            panel.style.maxHeight = null;
-            panel.style.overflow = "";
-            panel.style.display = "";
-          }
-        }
-      });
-    };
-
-    window.addEventListener("beforeprint", expandAllForPrint);
-    window.addEventListener("afterprint", restoreAfterPrint);
-
-    const expandAccordion = (elem) => {
-      const allPanels = Array.from(document.querySelectorAll(".panel"));
-      const allAccordion = Array.from(document.querySelectorAll(".accordion"));
-
-      if (!elem.parentElement.classList.contains("active")) {
-        allAccordion.forEach((acc) => {
-          acc.classList.remove("active");
-        });
-        elem.parentElement.classList.add("active");
-        allPanels.forEach(function (elem) {
-          elem.style.maxHeight = null;
-        });
-        let activePanel = elem.parentElement.nextElementSibling;
-        if (
-          activePanel.id != "skill-panel" &&
-          document.querySelector("#skill-panel")
-        ) {
-          let skillBars = Array.from(
-            document.querySelectorAll("#skill-percent"),
-          );
-          skillBars.forEach((elem) => {
-            elem.style.width = "0";
-          });
-        }
-        activePanel.style.maxHeight = activePanel.scrollHeight + "px";
-      } else {
-        elem.parentElement.classList.remove("active");
-        let activePanel = elem.parentElement.nextElementSibling;
-        activePanel.style.maxHeight = null;
-      }
-    };
-  </script>
-
-  <script>
-    let html = document.querySelector("html");
-    let theme = window.localStorage.getItem("theme");
-
-    const setTheme = (theme) => {
-      html.classList.remove("light");
-      if (theme === "dark") {
-        html.classList.add("dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        html.classList.remove("dark");
-        window.localStorage.setItem("theme", "light");
-      }
-      fixThemeToggleIcon(theme);
-    };
-
-    const fixThemeToggleIcon = (theme) => {
-      let themeToggle = document.querySelector(".theme-toggle");
-      if (themeToggle) {
-        if (theme === "dark") {
-          themeToggle.classList.remove("bi-moon");
-          themeToggle.classList.add("bi-brightness-high");
-        } else {
-          themeToggle.classList.remove("bi-brightness-high");
-          themeToggle.classList.add("bi-moon");
-        }
-      }
-    };
-
-    if (theme == null) {
-      if (html.classList.contains("dark")) {
-        theme = "dark";
-      } else if (html.classList.contains("light")) {
-        theme = "light";
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        if (prefersDark) {
-          theme = "dark";
-        } else {
-          theme = "light";
-        }
-      }
-    }
-
-    setTheme(theme);
-
-    const toggleTheme = () => {
-      html.classList.contains("dark") ? setTheme("light") : setTheme("dark");
-    };
-
-    window.onload = () => {
-      fixThemeToggleIcon(theme);
-
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel && defaultActivePanel.nextElementSibling) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-
-    window.onresize = () => {
-      let defaultActivePanel = document.querySelector(".accordion.active");
-      if (defaultActivePanel && defaultActivePanel.nextElementSibling) {
-        defaultActivePanel.nextElementSibling.style.maxHeight =
-          defaultActivePanel.nextElementSibling.scrollHeight + "px";
-      }
-    };
-  </script>
+  <!-- JavaScript Modules:
+       - theme.js: Executed immediately in <head> to prevent theme flash (FOUC)
+       - accordion.js: Deferred, handles interactive accordion expansion and heights
+       - print.js: Deferred, handles print title switching and expanding cards for print -->
+  <script src="{{ "js/theme.js" | relURL }}"></script>
+  <script src="{{ "js/accordion.js" | relURL }}" defer></script>
+  <script src="{{ "js/print.js" | relURL }}" defer></script>
 </head>

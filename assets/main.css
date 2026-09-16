@@ -638,9 +638,11 @@
     transition: width 0.5s cubic-bezier(0.2, 0, 0, 1);
   }
 
-  /* Quote Card */
+  /* Quote Card:
+     Uses CSS Container Queries to scale text proportionally with card width */
   .quote-card {
     container-type: inline-size;
+    /* Establishes a container context for cqw units */
     background-color: var(--md-sys-color-surface-container-low);
     border: 1px solid var(--md-sys-color-outline-variant);
     border-radius: var(--md-sys-shape-corner-l);
@@ -654,18 +656,16 @@
 
   .quote-text {
     font-style: italic;
-    font-size: clamp(0.50rem, 2.5cqw, 14px);
+    /* Scales font-size based on container query width (cqw), clamped between 0.72rem and 0.86rem */
+    font-size: clamp(0.72rem, 3.6cqw, 0.86rem);
     line-height: 1.35;
     color: var(--md-sys-color-on-surface);
     margin: 0;
     text-align: center;
-    white-space: nowrap;
-    display: inline-block;
+    text-wrap: balance;
+    /* Modern CSS: balances multi-line typographic wrapping evenly */
+    display: block;
     max-width: 100%;
-
-    @media (max-width: 767px) {
-      font-size: clamp(0.50rem, 2.5vw, 14px);
-    }
   }
 
   /* Sidebar Footer */
@@ -1707,7 +1707,7 @@
     display: inline-flex;
     align-items: center;
 
-    > a {
+    >a {
       color: #0d5c38;
       font-weight: 500;
       text-decoration: none;
@@ -1719,7 +1719,7 @@
       }
     }
 
-    > span {
+    >span {
       color: #1b4b32;
       font-weight: 500;
     }
@@ -1746,8 +1746,8 @@
     color: #d2e8db;
   }
 
-  .dark .bottom-bar-item > a,
-  html.dark .bottom-bar-item > a {
+  .dark .bottom-bar-item>a,
+  html.dark .bottom-bar-item>a {
     color: #cde6d6;
     font-weight: 500;
 
@@ -1757,8 +1757,8 @@
     }
   }
 
-  .dark .bottom-bar-item > span,
-  html.dark .bottom-bar-item > span {
+  .dark .bottom-bar-item>span,
+  html.dark .bottom-bar-item>span {
     color: #cde6d6;
     font-weight: 500;
   }
@@ -1773,6 +1773,7 @@
      Narrow Screen / Mobile Responsiveness (< 640px and < 540px)
      ========================================================================== */
   @media (max-width: 640px) {
+
     .panel-body,
     .panel-body-timeline {
       padding: 0.5rem 0.85rem 1rem 0.85rem;

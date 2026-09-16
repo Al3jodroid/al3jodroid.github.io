@@ -20,12 +20,14 @@ Live: **[https://al3jodroid.github.io/](https://al3jodroid.github.io/)**
 - 🪙 **Interactive 3D Coin-Flip Avatar**: Custom CSS 3D card flip animation toggling between Android Droid mascot and personal portrait.
 - 🖨️ **Print-to-PDF Engine (Experimental)**:
   - Custom print stylesheet (`static/css/print.css`) tailored for an exact 3-page layout with compact typography and custom headers.
+  - **Lightweight & High-DPI (< 1 MB)**: Embedded raster icons and portraits are optimized for high-DPI (300+ DPI) while keeping the final PDF lightweight (< 1 MB).
+  - **Dynamic Sanitized Export Naming**: Automatically suggests clean file names on export (`CV_Alejandro_Rodríguez_EN.pdf` / `CV_Alejandro_Rodríguez_ES.pdf`) controlled directly via `config.yaml`.
   - Branded Android bottom bar docked cleanly across printed pages.
   - **Browser Compatibility**: Optimized exclusively for **Google Chrome (Desktop)**. Mobile browsers (especially iOS Safari / WebKit) have known limitations with CSS Paged Media (`break-inside: avoid`, exact `@page` margins, and canvas scaling), which may cause uneven page breaks. For the best PDF export, print from desktop Chrome using:
     - Destination: *Save as PDF*
     - Margins: *Default*
     - Options: *Background graphics enabled*
-- ⚡ **Ultra-Fast & Modern Stack**: Built with Hugo extended, TailwindCSS v4, and minimal vanilla JavaScript.
+- ⚡ **Ultra-Fast & Modern Stack**: Built with Hugo extended, TailwindCSS v4, CSS Container Queries, and clean, decoupled modular Vanilla JavaScript.
 - 🚀 **Automated CI/CD**: Native GitHub Actions deployment pipeline running on Node 24 and deploying directly to GitHub Pages.
 
 ---
@@ -33,7 +35,8 @@ Live: **[https://al3jodroid.github.io/](https://al3jodroid.github.io/)**
 ## 🛠️ Tech Stack
 
 - **Static Site Generator**: [Hugo](https://gohugo.io/) (Extended edition)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + Custom CSS tokens
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + CSS Container Queries (`@container`)
+- **JavaScript**: Vanilla ES6+ modular scripts (`theme.js`, `accordion.js`, `print.js`)
 - **Theme Base**: Custom-tailored `aafu` theme overrides
 - **Icons**: [Bootstrap Icons](https://icons.getbootstrap.com/) & [Academicons](https://jpswalsh.github.io/academicons/)
 - **Typography**: Roboto & Roboto Mono (Google Fonts)
@@ -58,10 +61,11 @@ Live: **[https://al3jodroid.github.io/](https://al3jodroid.github.io/)**
 │   ├── _default/        # Base HTML templates (baseof.html)
 │   └── partials/        # Components (profile, experience, skills, bottom bar, etc.)
 ├── static/
-│   ├── css/             # Custom print (print.css) and web styles (custom.css)
+│   ├── css/             # Custom print (print.css) and web styles
 │   ├── images/          # Assets (avatars, icons, flags, SVGs)
+│   ├── js/              # Modular scripts (theme.js, accordion.js, print.js)
 │   └── favicon*         # Multi-size favicons and web manifests
-├── config.yaml          # Hugo configuration & per-language titles
+├── config.yaml          # Hugo configuration & per-language export titles
 └── package.json         # Tailwind CSS dependencies
 ```
 

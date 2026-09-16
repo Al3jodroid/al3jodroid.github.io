@@ -20,8 +20,10 @@
       {{ end }}
     {{ end }}
 
-    <!-- Print CV Button -->
-    <button onclick="expandAllForPrint(); setTimeout(() => window.print(), 100);" title="{{ i18n "print_cv" }}" class="btn-icon" id="print-btn">
+    <!-- Print CV Button:
+         Prepares the DOM (expandAllForPrint), opens the native print dialog,
+         and immediately restores original title & panel states on completion/cancel (restoreAfterPrint) -->
+    <button onclick="expandAllForPrint(); setTimeout(() => { window.print(); restoreAfterPrint(); }, 100);" title="{{ i18n "print_cv" }}" class="btn-icon" id="print-btn">
       <i class="bi bi-printer"></i>
     </button>
 
