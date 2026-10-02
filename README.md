@@ -71,6 +71,202 @@ Live: **[https://al3jodroid.github.io/](https://al3jodroid.github.io/)**
 
 ---
 
+## 📋 Content Schema & Front Matter Reference
+
+All CV content is maintained declaratively in the YAML front matter of `content/en/_index.md` (English) and `content/es/_index.md` (Spanish). Below is the comprehensive field specification:
+
+### 1. Profile, SEO & Social Metadata
+
+| Field | Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `title` | String | Candidate's display name | `"Alejandro Rodríguez S."` |
+| `seo_title` | String | Full `<title>` tag for search engines | `"Alejandro Rodríguez S. - Android && Flutter Specialist"` |
+| `role` | String | Professional headline / primary title | `"Android && Flutter Specialist"` |
+| `description` | String | SEO meta description & social card summary | `"Senior Mobile Engineer & Architect..."` |
+| `keywords` | Array of Strings | Search keywords for indexing | `["Android Specialist", "Flutter", ...]` |
+| `bio` | String | Professional summary rendered in the "About Me" card | `"I am a software engineer specializing in..."` |
+| `quote` | String | Personal motto displayed in the Quote card | `"Everything is possible, the only thing required is time."` |
+| `avatar` | String | Relative path to profile portrait | `"images/profile.jpg"` |
+| `droid_avatar` | String | Relative path to 3D flip card reverse image | `"images/droid.jpg"` |
+| `og_image` | String | Path to Open Graph preview image (1200x630) | `"images/og-droid.jpg"` |
+
+---
+
+### 2. Contact Information (`contact`)
+
+| Field | Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `email` | String | Contact email address | `"alejodroid.co@gmail.com"` |
+| `location` | String | City, state/province, and country | `"Bogotá, D.C., Colombia"` |
+| `location_flag` | String | 2-letter country code for flag icon | `"co"` |
+| `linkedin` | String (URL) | LinkedIn profile URL | `"https://www.linkedin.com/in/al3jodroid/"` |
+| `github` | String (URL) | GitHub profile URL | `"https://github.com/Al3jodroid"` |
+| `google` | String (URL) | Google Developer profile URL | `"https://g.dev/Al3jodroid"` |
+| `medium` | String (URL) | Medium publication or author profile URL | `"https://medium.com/@al3jodroid"` |
+
+---
+
+### 3. Languages (`languages`)
+
+List of spoken languages with optional competency breakdown:
+
+```yaml
+languages:
+  - name: "English (B2)"
+    flag: "gb"            # 2-letter country code for flag icon
+    level: "Professional" # Proficiency label
+    percent: 85           # Overall percentage (0-100)
+    skills:               # (Optional) Detailed breakdown
+      - name: "Reading"
+        percent: 85
+      - name: "Writing"
+        percent: 70
+      - name: "Speaking"
+        percent: 90
+      - name: "Listening"
+        percent: 85
+```
+
+---
+
+### 4. Technical Knowledge & Skills
+
+#### `knowledge_sections`
+Grouped narrative descriptions for core domains:
+
+```yaml
+knowledge_sections:
+  - title: "Mobile & Multiplatform Development"
+    items:
+      - "High expertise in development with the **Android** SDK..."
+      - "Proficiency in Google's **Flutter** framework..."
+```
+
+#### `skills`
+Categorized pill badges rendered in the Skills accordion:
+
+```yaml
+skills:
+  - category: "Mobile Development"
+    items: ["Android SDK (Java & Kotlin)", "Jetpack", "Compose", "Flutter SDK & Dart", "KMP"]
+  - category: "Architecture & Integration"
+    items: ["MVVM", "Clean Architecture", "Dagger & Hilt DI", "REST(FUL) APIs", "GraphQL"]
+```
+
+#### `skills_summary`
+List of high-level bullet points highlighting engineering leadership and methodologies:
+
+```yaml
+skills_summary:
+  - "Appraise graphic design in mobile applications..."
+  - "Author comprehensive documentation for AI-driven development (AIDD)..."
+```
+
+---
+
+### 5. Work Experience (`experience`)
+
+Chronological list of career positions:
+
+```yaml
+experience:
+  - company: "HUGE Inc."
+    location: "Bogotá, D.C., Colombia"
+    role: "Senior UI Engineer"
+    period: "Oct. 2026 – Present"
+    details: "Technical leadership and development of native **Android** applications..."
+    tech: ["Android SDK", "Kotlin", "AI Integrations", "GitHub", "Jetpack"]
+```
+
+> [!NOTE]
+> **Print Mode Behavior**: In print mode, only the **9 most recent experiences** are printed (`.experience-print-hide` on index ≥ 9) to ensure clean page breaks without spilling into subsequent pages. All experiences remain fully visible and interactive in web mode.
+
+---
+
+### 6. Projects & Showcase Applications (`projects`)
+
+Featured mobile applications and client implementations:
+
+```yaml
+projects:
+  - title: "Credomatic BAC App"
+    icon: "images/apps/bac-credomatic.png"       # App logo (preloaded in head)
+    client: "Banco Autónomo de Costa Rica"       # Client or organization name
+    platforms: ["android", "ios"]               # Platform badges: "android", "ios", "web"
+    description: "Migration with **Flutter** app multiplatform technology..."
+    tech: ["Flutter", "Dart", "Banking Security"]
+    links:                                      # Store / web links
+      - name: "Google Play"
+        url: "https://play.google.com/store/apps/..."
+      - name: "App Store"
+        url: "https://apps.apple.com/..."
+```
+
+---
+
+### 7. Education & Other Studies
+
+#### `education`
+Academic university and secondary school degrees:
+
+```yaml
+education:
+  - degree: "Professional Computing Science"
+    institution: "Escuela Colombiana de Ingeniería Julio Garavito"
+    period: "2003 – 2009"
+    details: "(Degree received March 27, 2010) Graduated with emphasis in software quality..."
+```
+
+#### `other_studies`
+Conferences, specialized courses, certifications, and teaching:
+
+```yaml
+other_studies:
+  - title: "Attendee FlutterConf Latam Medellín Colombia"
+    institution: "Flutter Latam Community"
+    period: "25 – 26 October 2023"
+```
+
+---
+
+### 8. Publications & Articles (`publications`)
+
+Technical articles, tutorials, and open-source companion repositories. Supports single URLs as well as multiple linked resources:
+
+```yaml
+publications:
+  - title: "A Tale of Two Technologies: App Android"
+    details: "A curated 10-article list comparing Google's modern mobile ecosystems..."
+    url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5" # (Optional) Direct article link
+    github: "https://github.com/Al3jodroid/pokemon-android"                  # (Optional) Primary repo link
+    links:                                                                  # (Optional) Multiple additional links
+      - name: "Flutter Companion Repo"
+        url: "https://github.com/Al3jodroid/pokemon-flutter"
+      - name: "Documentation / Demo"
+        url: "https://example.com/demo"
+```
+
+> [!TIP]
+> The template automatically inspects link URLs:
+> - Links to `github.com` render with the GitHub icon (`bi-github`).
+> - Links to `medium.com` render with the Medium icon (`bi-medium`).
+> - Other URLs render with a generic external link icon (`bi-link-45deg`).
+
+---
+
+### 9. References (`references`)
+
+Professional recommendations and contact references:
+
+```yaml
+references:
+  - name: "Luis Javier Torres"
+    role: "Specialized Technology Principal Android & Flutter"
+    linkedin: "https://www.linkedin.com/in/luisjtorres/"
+```
+
+---
+
 ## 🚀 Local Development
 
 ### Prerequisites

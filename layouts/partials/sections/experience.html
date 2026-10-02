@@ -12,8 +12,8 @@
   </h2>
   <div class="panel">
     <div class="panel-body-timeline">
-      {{ range .Params.experience }}
-      <div class="timeline-card">
+      {{ range $index, $exp := .Params.experience }}
+      <div class="timeline-card{{ if ge $index 9 }} experience-print-hide{{ end }}">
         <div class="timeline-header">
           <div class="timeline-left">
             <h4 class="timeline-title">{{ .company }}{{ with .location }}<span class="timeline-location">&nbsp;&middot;&nbsp;{{ . }}</span>{{ end }}</h4>

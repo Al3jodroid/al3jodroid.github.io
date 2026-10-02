@@ -79,6 +79,13 @@ skills:
     items: ["AI-Driven Development (AIDD / HITL)", "Agentes de IA (Gemini, Claude, Antigravity)", "Metodologías Ágiles (SCRUM, Kanban)", "OKRs y Optimización de Conversión (CVR)", "Testing (JUnit, Espresso, TDD)"]
 
 experience:
+  - company: "Huge Inc."
+    location: "Bogotá, D.C., Colombia"
+    role: "Senior UI Engineer"
+    period: "Oct. 2026 – Presente"
+    details: "Liderazgo técnico y desarrollo de aplicaciones nativas en **Android**, junto con procesos de inteligencia artificial enfocados en la experiencia (UX) e interfaces de usuario (UI)."
+    tech: ["Android SDK", "Kotlin", "AI Integrations", "GitHub", "Jetpack"]
+
   - company: "Globant"
     location: "Bogotá, D.C., Colombia"
     role: "Flutter Specialist / Architect"
@@ -114,7 +121,7 @@ experience:
     details: "Diseño, desarrollo y pruebas integrales del nuevo módulo de incorporación (Onboarding) y creación de cuentas de usuario en **Android** para PayPal y Venmo."
     tech: ["Android SDK", "GitHub", "Kotlin", "Jetpack", "Figma"]
 
-  - company: "HUGE Inc."
+  - company: "Huge Inc."
     location: "Bogotá, D.C., Colombia"
     role: "Senior Android Engineer"
     period: "Ene. 2020 – Ago. 2021"

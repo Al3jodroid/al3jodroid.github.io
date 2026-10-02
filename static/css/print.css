@@ -726,6 +726,17 @@
     padding-bottom: 0.15rem !important;
   }
 
+  /* Limit to only the 9 most recent job experiences in print mode */
+  .cv-main .section-experience .timeline-card:nth-child(n+10),
+  .cv-main .section-experience .timeline-card.experience-print-hide {
+    display: none !important;
+  }
+
+  .cv-main .section-experience .timeline-card:nth-child(9) {
+    border-bottom: none !important;
+    padding-bottom: 0.15rem !important;
+  }
+
   .timeline-header,
   .cv-main .timeline-header,
   .timeline-card-compact .timeline-header {
