@@ -1,19 +1,19 @@
 <!-- 1. Knowledge / Conocimientos (Expanded by default) -->
 <div class="accordion-section">
   <h2 class="accordion active">
-    <p onclick="expandAccordion(this)">
-      <i class="bi bi-lightbulb-fill"></i>
+    <button type="button" class="accordion-trigger" aria-expanded="true" onclick="expandAccordion(this)">
+      <i class="bi bi-lightbulb-fill" aria-hidden="true"></i>
       <span>{{ i18n "knowledge_title" | default "Knowledge" }}</span>
-    </p>
+    </button>
   </h2>
   <div class="panel">
     <div class="panel-body">
       <!-- Knowledge of Mobile Development -->
       {{ if .Params.mobile_knowledge }}
       <div>
-        <h4 class="subheading">
+        <h3 class="subheading">
           <i class="bi bi-phone"></i> {{ i18n "mobile_knowledge_title" | default "Knowledge of Mobile Development" }}
-        </h4>
+        </h3>
         <ul class="bullet-list">
           {{ range .Params.mobile_knowledge }}
           <li class="bullet-item">

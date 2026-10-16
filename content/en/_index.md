@@ -10,7 +10,7 @@ avatar: "images/profile.jpg"
 droid_avatar: "images/droid.jpg"
 og_image: "images/og-droid.jpg"
 contact:
-  email: "alejodroid.co@gmail.com"
+  email: "al3jodroid@proton.me"
   location: "Bogotá, D.C., Colombia"
   location_flag: "co"
   linkedin: "https://www.linkedin.com/in/al3jodroid/"

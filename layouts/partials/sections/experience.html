@@ -2,13 +2,13 @@
 {{ if .Params.experience }}
 <div class="accordion-section section-experience">
   <h2 class="accordion">
-    <p onclick="expandAccordion(this)">
+    <button type="button" class="accordion-trigger" aria-expanded="false" onclick="expandAccordion(this)">
       <span class="accordion-header-lead">
-        <i class="bi bi-briefcase-fill"></i>
+        <i class="bi bi-briefcase-fill" aria-hidden="true"></i>
         <span>{{ i18n "experience_title" | default "Job Experience" }}</span>
       </span>
-      <i class="bi bi-chevron-down accordion-chevron"></i>
-    </p>
+      <i class="bi bi-chevron-down accordion-chevron" aria-hidden="true"></i>
+    </button>
   </h2>
   <div class="panel">
     <div class="panel-body-timeline">
@@ -16,7 +16,7 @@
       <div class="timeline-card{{ if ge $index 9 }} experience-print-hide{{ end }}">
         <div class="timeline-header">
           <div class="timeline-left">
-            <h4 class="timeline-title">{{ .company }}{{ with .location }}<span class="timeline-location">&nbsp;&middot;&nbsp;{{ . }}</span>{{ end }}</h4>
+            <h3 class="timeline-title">{{ .company }}{{ with .location }}<span class="timeline-location">&nbsp;&middot;&nbsp;{{ . }}</span>{{ end }}</h3>
             <p class="timeline-subtitle">{{ .role }}</p>
           </div>
           <div class="timeline-right">

@@ -22,13 +22,16 @@
     const headerParent = elem.parentElement;
 
     if (!headerParent.classList.contains("active")) {
-      // 1. Deactivate all accordion headers
+      // 1. Deactivate all accordion headers and update ARIA states
       allAccordion.forEach((acc) => {
         acc.classList.remove("active");
+        const btn = acc.querySelector(".accordion-trigger, button, p");
+        if (btn) btn.setAttribute("aria-expanded", "false");
       });
 
       // 2. Mark this header as active
       headerParent.classList.add("active");
+      elem.setAttribute("aria-expanded", "true");
 
       // 3. Collapse all panels
       allPanels.forEach(function (panel) {
@@ -59,6 +62,7 @@
     } else {
       // If clicking an already active panel, collapse it
       headerParent.classList.remove("active");
+      elem.setAttribute("aria-expanded", "false");
       const activePanel = headerParent.nextElementSibling;
       if (activePanel) {
         activePanel.style.maxHeight = null;
@@ -71,7 +75,16 @@
    * (e.g., Knowledge / Experience) when the page is loaded or resized.
    */
   const initActiveAccordion = () => {
+    const allAccordion = Array.from(document.querySelectorAll(".accordion"));
     const defaultActivePanel = document.querySelector(".accordion.active");
+
+    allAccordion.forEach((acc) => {
+      const btn = acc.querySelector(".accordion-trigger, button, p");
+      if (btn) {
+        btn.setAttribute("aria-expanded", acc.classList.contains("active") ? "true" : "false");
+      }
+    });
+
     if (defaultActivePanel && defaultActivePanel.nextElementSibling) {
       defaultActivePanel.nextElementSibling.style.maxHeight =
         defaultActivePanel.nextElementSibling.scrollHeight + "px";

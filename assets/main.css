@@ -145,6 +145,12 @@
       text-decoration: underline;
     }
   }
+
+  :focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+    border-radius: var(--md-sys-shape-corner-xs, 4px);
+  }
 }
 
 @layer components {
@@ -717,7 +723,8 @@
     user-select: none;
     margin: 0;
 
-    >p {
+    >p,
+    >.accordion-trigger {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -727,9 +734,25 @@
       cursor: pointer;
       border-radius: var(--md-sys-shape-corner-l);
       transition: background-color 0.2s ease, color 0.2s ease;
+      width: 100%;
+      border: none;
+      background: none;
+      font: inherit;
+      text-align: left;
+      -webkit-appearance: none;
+      appearance: none;
 
       &:hover {
         background-color: var(--md-sys-color-surface-container-high);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--md-sys-color-primary);
+        outline-offset: -2px;
       }
     }
   }
@@ -753,7 +776,8 @@
     transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), color 0.2s ease;
   }
 
-  .accordion.active>p {
+  .accordion.active>p,
+  .accordion.active>.accordion-trigger {
     background-color: var(--md-sys-color-surface-container-high);
     color: var(--md-sys-color-primary);
 
@@ -810,50 +834,60 @@
   }
 
   /* Accentuated Green Section Headers (Closed state) */
-  .cv-main .accordion>p {
+  .cv-main .accordion>p,
+  .cv-main .accordion>.accordion-trigger {
     background-color: #d8eedc;
     color: #00472e;
     border-radius: var(--md-sys-shape-corner-l);
     border-bottom: 1px solid transparent;
   }
 
-  .cv-main .accordion>p:hover {
+  .cv-main .accordion>p:hover,
+  .cv-main .accordion>.accordion-trigger:hover {
     background-color: #c9e8cf;
   }
 
-  .cv-main .accordion>p .accordion-header-lead {
+  .cv-main .accordion>p .accordion-header-lead,
+  .cv-main .accordion>.accordion-trigger .accordion-header-lead {
     color: #00472e;
   }
 
-  .cv-main .accordion>p .accordion-header-lead>i {
+  .cv-main .accordion>p .accordion-header-lead>i,
+  .cv-main .accordion>.accordion-trigger .accordion-header-lead>i {
     color: #006c47;
   }
 
-  .cv-main .accordion>p .accordion-chevron {
+  .cv-main .accordion>p .accordion-chevron,
+  .cv-main .accordion>.accordion-trigger .accordion-chevron {
     color: #005a39;
   }
 
   /* Accentuated Green Section Headers (Active / Open state) */
-  .cv-main .accordion.active>p {
+  .cv-main .accordion.active>p,
+  .cv-main .accordion.active>.accordion-trigger {
     background-color: #c6e6cd;
     color: #003922;
     border-radius: var(--md-sys-shape-corner-l) var(--md-sys-shape-corner-l) 0 0;
     border-bottom: 1px solid #a8d5b2;
   }
 
-  .cv-main .accordion.active>p:hover {
+  .cv-main .accordion.active>p:hover,
+  .cv-main .accordion.active>.accordion-trigger:hover {
     background-color: #bde0c5;
   }
 
-  .cv-main .accordion.active>p .accordion-header-lead {
+  .cv-main .accordion.active>p .accordion-header-lead,
+  .cv-main .accordion.active>.accordion-trigger .accordion-header-lead {
     color: #003922;
   }
 
-  .cv-main .accordion.active>p .accordion-header-lead>i {
+  .cv-main .accordion.active>p .accordion-header-lead>i,
+  .cv-main .accordion.active>.accordion-trigger .accordion-header-lead>i {
     color: #006c47;
   }
 
-  .cv-main .accordion.active>p .accordion-chevron {
+  .cv-main .accordion.active>p .accordion-chevron,
+  .cv-main .accordion.active>.accordion-trigger .accordion-chevron {
     color: #003922;
   }
 
@@ -874,49 +908,59 @@
   }
 
   /* Dark Mode Accentuated Green Section Headers */
-  .dark .cv-main .accordion>p {
+  .dark .cv-main .accordion>p,
+  .dark .cv-main .accordion>.accordion-trigger {
     background-color: #173b26;
     color: #e5f7ed;
     border-bottom: 1px solid transparent;
   }
 
-  .dark .cv-main .accordion>p:hover {
+  .dark .cv-main .accordion>p:hover,
+  .dark .cv-main .accordion>.accordion-trigger:hover {
     background-color: #1e472f;
   }
 
-  .dark .cv-main .accordion>p .accordion-header-lead {
+  .dark .cv-main .accordion>p .accordion-header-lead,
+  .dark .cv-main .accordion>.accordion-trigger .accordion-header-lead {
     color: #e5f7ed;
   }
 
-  .dark .cv-main .accordion>p .accordion-header-lead>i {
+  .dark .cv-main .accordion>p .accordion-header-lead>i,
+  .dark .cv-main .accordion>.accordion-trigger .accordion-header-lead>i {
     color: #3ddc84;
   }
 
-  .dark .cv-main .accordion>p .accordion-chevron {
+  .dark .cv-main .accordion>p .accordion-chevron,
+  .dark .cv-main .accordion>.accordion-trigger .accordion-chevron {
     color: #8df7b6;
   }
 
   /* Dark Mode Active / Open state */
-  .dark .cv-main .accordion.active>p {
+  .dark .cv-main .accordion.active>p,
+  .dark .cv-main .accordion.active>.accordion-trigger {
     background-color: #1d462d;
     color: #ffffff;
     border-radius: var(--md-sys-shape-corner-l) var(--md-sys-shape-corner-l) 0 0;
     border-bottom: 1px solid #2d6240;
   }
 
-  .dark .cv-main .accordion.active>p:hover {
+  .dark .cv-main .accordion.active>p:hover,
+  .dark .cv-main .accordion.active>.accordion-trigger:hover {
     background-color: #245236;
   }
 
-  .dark .cv-main .accordion.active>p .accordion-header-lead {
+  .dark .cv-main .accordion.active>p .accordion-header-lead,
+  .dark .cv-main .accordion.active>.accordion-trigger .accordion-header-lead {
     color: #ffffff;
   }
 
-  .dark .cv-main .accordion.active>p .accordion-header-lead>i {
+  .dark .cv-main .accordion.active>p .accordion-header-lead>i,
+  .dark .cv-main .accordion.active>.accordion-trigger .accordion-header-lead>i {
     color: #3ddc84;
   }
 
-  .dark .cv-main .accordion.active>p .accordion-chevron {
+  .dark .cv-main .accordion.active>p .accordion-chevron,
+  .dark .cv-main .accordion.active>.accordion-trigger .accordion-chevron {
     color: #3ddc84;
   }
 
@@ -1779,7 +1823,8 @@
       padding: 0.5rem 0.85rem 1rem 0.85rem;
     }
 
-    .accordion>p {
+    .accordion>p,
+    .accordion>.accordion-trigger {
       padding: 0.75rem 0.85rem;
       min-height: 48px;
     }
@@ -1908,5 +1953,19 @@
       gap: 0.15rem 0.25rem;
       font-size: clamp(0.46rem, 2.6vw, 0.60rem);
     }
+  }
+}
+
+/* ==========================================================================
+   Accessibility: Reduced Motion Preference
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

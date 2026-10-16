@@ -279,7 +279,8 @@
   }
 
   .accordion,
-  .accordion>p {
+  .accordion>p,
+  .accordion>.accordion-trigger {
     break-after: avoid !important;
     page-break-after: avoid !important;
   }
@@ -648,10 +649,15 @@
 
   /* Accordion Headers (Knowledge, Skills, Education, Experience, Projects, etc.): Accentuated Green Header */
   .accordion>p,
+  .accordion>.accordion-trigger,
   .accordion.active>p,
+  .accordion.active>.accordion-trigger,
   .cv-sidebar .accordion>p,
+  .cv-sidebar .accordion>.accordion-trigger,
   .cv-main .accordion>p,
-  .cv-knowledge-col .accordion>p {
+  .cv-main .accordion>.accordion-trigger,
+  .cv-knowledge-col .accordion>p,
+  .cv-knowledge-col .accordion>.accordion-trigger {
     background-color: #c6e6cd !important;
     background: #c6e6cd !important;
     color: #003922 !important;
@@ -1577,15 +1583,25 @@
 
   /* Dark Accentuated Green Section Headers */
   html.dark .accordion>p,
+  html.dark .accordion>.accordion-trigger,
   html.dark .accordion.active>p,
+  html.dark .accordion.active>.accordion-trigger,
   html.dark .cv-sidebar .accordion>p,
+  html.dark .cv-sidebar .accordion>.accordion-trigger,
   html.dark .cv-main .accordion>p,
+  html.dark .cv-main .accordion>.accordion-trigger,
   html.dark .cv-knowledge-col .accordion>p,
+  html.dark .cv-knowledge-col .accordion>.accordion-trigger,
   .dark .accordion>p,
+  .dark .accordion>.accordion-trigger,
   .dark .accordion.active>p,
+  .dark .accordion.active>.accordion-trigger,
   .dark .cv-sidebar .accordion>p,
+  .dark .cv-sidebar .accordion>.accordion-trigger,
   .dark .cv-main .accordion>p,
-  .dark .cv-knowledge-col .accordion>p {
+  .dark .cv-main .accordion>.accordion-trigger,
+  .dark .cv-knowledge-col .accordion>p,
+  .dark .cv-knowledge-col .accordion>.accordion-trigger {
     background-color: #1d462d !important;
     background: #1d462d !important;
     color: #ffffff !important;

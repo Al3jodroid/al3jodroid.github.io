@@ -1,13 +1,13 @@
 <!-- 1. Knowledge / Conocimientos (Expanded by default) -->
 <div class="accordion-section">
   <h2 class="accordion active">
-    <p onclick="expandAccordion(this)">
+    <button type="button" class="accordion-trigger" aria-expanded="true" onclick="expandAccordion(this)">
       <span class="accordion-header-lead">
-        <i class="bi bi-lightbulb-fill"></i>
+        <i class="bi bi-lightbulb-fill" aria-hidden="true"></i>
         <span>{{ i18n "knowledge_title" | default "Knowledge" }}</span>
       </span>
-      <i class="bi bi-chevron-down accordion-chevron"></i>
-    </p>
+      <i class="bi bi-chevron-down accordion-chevron" aria-hidden="true"></i>
+    </button>
   </h2>
   <div class="panel">
     <div class="panel-body">
@@ -15,9 +15,9 @@
       <div class="knowledge-groups-list">
         {{ range .Params.knowledge_sections }}
         <div class="knowledge-group">
-          <h4 class="subheading">
+          <h3 class="subheading">
             <i class="bi {{ .icon }}"></i> {{ .title }}
-          </h4>
+          </h3>
           <ul class="bullet-list">
             {{ range .items }}
             <li class="bullet-item">
@@ -33,9 +33,9 @@
       <!-- Fallback -->
       {{ if .Params.mobile_knowledge }}
       <div class="knowledge-group">
-        <h4 class="subheading">
+        <h3 class="subheading">
           <i class="bi bi-phone"></i> {{ i18n "mobile_knowledge_title" | default "Knowledge of Mobile Development" }}
-        </h4>
+        </h3>
         <ul class="bullet-list">
           {{ range .Params.mobile_knowledge }}
           <li class="bullet-item">

@@ -2,13 +2,13 @@
 {{ if .Params.other_studies }}
 <div class="accordion-section section-other-studies">
   <h2 class="accordion">
-    <p onclick="expandAccordion(this)">
+    <button type="button" class="accordion-trigger" aria-expanded="false" onclick="expandAccordion(this)">
       <span class="accordion-header-lead">
-        <i class="bi bi-award-fill"></i>
+        <i class="bi bi-award-fill" aria-hidden="true"></i>
         <span>{{ i18n "other_studies_title" | default "Other Studies and Participations" }}</span>
       </span>
-      <i class="bi bi-chevron-down accordion-chevron"></i>
-    </p>
+      <i class="bi bi-chevron-down accordion-chevron" aria-hidden="true"></i>
+    </button>
   </h2>
   <div class="panel">
     <div class="panel-body">
@@ -17,7 +17,7 @@
         {{ with .period }}
         <p class="study-period">{{ . }}</p>
         {{ end }}
-        <h4 class="study-title">{{ .title }}</h4>
+        <h3 class="study-title">{{ .title }}</h3>
         {{ with .institution }}
         <div class="study-institution">{{ . }}</div>
         {{ end }}

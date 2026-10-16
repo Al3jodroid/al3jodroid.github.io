@@ -6,18 +6,18 @@
     {{ partial "sections/languages.html" . }}
     {{ partial "sections/about_me.html" . }}
     {{ partial "sections/quote.html" . }}
-    <div class="education-print-only">
+    <div class="education-print-only" aria-hidden="true">
       {{ partial "sections/education.html" . }}
       {{ partial "sections/other_studies.html" . }}
     </div>
-    <div class="page3-print-sidebar">
+    <div class="page3-print-sidebar" aria-hidden="true">
       {{ partial "sections/publications.html" . }}
       {{ partial "sections/references.html" . }}
     </div>
   </aside>
 
   <!-- Right Column (70% in print): Knowledge, Skills, Experience, and remaining sections -->
-  <main class="cv-main">
+  <div class="cv-main">
     <div class="cv-knowledge-col">
       {{ partial "sections/knowledge.html" . }}
       {{ partial "sections/skills.html" . }}
@@ -25,7 +25,7 @@
     <div class="page2-print-main">
       {{ partial "sections/experience.html" . }}
     </div>
-    <div class="page3-print-main">
+    <div class="page3-print-main" aria-hidden="true">
       {{ partial "sections/projects.html" . }}
     </div>
     <div class="cv-rest-sections">
@@ -37,6 +37,6 @@
       </div>
       {{ partial "sections/references.html" . }}
     </div>
-  </main>
+  </div>
 </div>
 {{ end }}
