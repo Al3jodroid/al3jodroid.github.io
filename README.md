@@ -27,6 +27,11 @@ Live: **[https://al3jodroid.github.io/](https://al3jodroid.github.io/)**
     - Destination: *Save as PDF*
     - Margins: *Default*
     - Options: *Background graphics enabled*
+- ♿ **Accessibility & Standards (WCAG 2.1 AA Compliant)**:
+  - Fully keyboard operable W3C WAI-ARIA accordions (`<button class="accordion-trigger">` with dynamic `aria-expanded`).
+  - High-visibility Material 3 focus rings (`:focus-visible`) and native reduced-motion preference support (`prefers-reduced-motion`).
+  - Strict semantic heading hierarchy (`h1` &rarr; `h2` &rarr; `h3`), single `<main>` landmark region, and accessible `aria-label` attributes on all contact and action icons.
+  - Mobile pinch-to-zoom enabled (WCAG 1.4.4 Level AA compliance).
 - ⚡ **Ultra-Fast & Modern Stack**: Built with Hugo extended, TailwindCSS v4, CSS Container Queries, and clean, decoupled modular Vanilla JavaScript.
 - 🚀 **Automated CI/CD**: Native GitHub Actions deployment pipeline running on Node 24 and deploying directly to GitHub Pages.
 
@@ -75,38 +80,38 @@ Live: **[https://al3jodroid.github.io/](https://al3jodroid.github.io/)**
 
 All CV content is maintained declaratively in the YAML front matter of `content/en/_index.md` (English) and `content/es/_index.md` (Spanish). Below is the comprehensive field specification:
 
-### 1. Profile, SEO & Social Metadata
+### 1. Profile, SEO & Social Metadata — *Nerdy Example*
 
 | Field | Type | Description | Example |
 | :--- | :--- | :--- | :--- |
-| `title` | String | Candidate's display name | `"Alejandro Rodríguez S."` |
-| `seo_title` | String | Full `<title>` tag for search engines | `"Alejandro Rodríguez S. - Android && Flutter Specialist"` |
-| `role` | String | Professional headline / primary title | `"Android && Flutter Specialist"` |
-| `description` | String | SEO meta description & social card summary | `"Senior Mobile Engineer & Architect..."` |
-| `keywords` | Array of Strings | Search keywords for indexing | `["Android Specialist", "Flutter", ...]` |
-| `bio` | String | Professional summary rendered in the "About Me" card | `"I am a software engineer specializing in..."` |
-| `quote` | String | Personal motto displayed in the Quote card | `"Everything is possible, the only thing required is time."` |
+| `title` | String | Candidate's display name | `"Miles Morales"` |
+| `seo_title` | String | Full `<title>` tag for search engines | `"Miles Morales - Senior Mobile & Systems Engineer"` |
+| `role` | String | Professional headline / primary title | `"Senior Mobile & Systems Engineer"` |
+| `description` | String | SEO meta description & social card summary | `"Senior Software Engineer specializing in multiplatform architecture..."` |
+| `keywords` | Array of Strings | Search keywords for indexing | `["Mobile Engineer", "Kotlin", "Flutter", ...]` |
+| `bio` | String | Professional summary rendered in the "About Me" card | `"Software engineer building resilient mobile systems across the multiverse..."` |
+| `quote` | String | Personal motto displayed in the Quote card | `"With great power comes great responsibility — and clean architecture."` |
 | `avatar` | String | Relative path to profile portrait | `"images/profile.jpg"` |
 | `droid_avatar` | String | Relative path to 3D flip card reverse image | `"images/droid.jpg"` |
 | `og_image` | String | Path to Open Graph preview image (1200x630) | `"images/og-droid.jpg"` |
 
 ---
 
-### 2. Contact Information (`contact`)
+### 2. Contact Information (`contact`) — *Nerdy Example*
 
 | Field | Type | Description | Example |
 | :--- | :--- | :--- | :--- |
-| `email` | String | Contact email address | `"alejodroid.co@gmail.com"` |
-| `location` | String | City, state/province, and country | `"Bogotá, D.C., Colombia"` |
-| `location_flag` | String | 2-letter country code for flag icon | `"co"` |
-| `linkedin` | String (URL) | LinkedIn profile URL | `"https://www.linkedin.com/in/al3jodroid/"` |
-| `github` | String (URL) | GitHub profile URL | `"https://github.com/Al3jodroid"` |
-| `google` | String (URL) | Google Developer profile URL | `"https://g.dev/Al3jodroid"` |
-| `medium` | String (URL) | Medium publication or author profile URL | `"https://medium.com/@al3jodroid"` |
+| `email` | String | Contact email address | `"miles.morales@example.com"` |
+| `location` | String | City, state/province, and country | `"Brooklyn, NY, USA"` |
+| `location_flag` | String | 2-letter country code for flag icon | `"us"` |
+| `linkedin` | String (URL) | LinkedIn profile URL | `"https://www.linkedin.com/in/..."` |
+| `github` | String (URL) | GitHub profile URL | `"https://github.com/..."` |
+| `google` | String (URL) | Google Developer profile URL | `"https://g.dev/..."` |
+| `medium` | String (URL) | Medium publication or author profile URL | `"https://medium.com/@..."` |
 
 ---
 
-### 3. Languages (`languages`)
+### 3. Languages (`languages`) — *Nerdy Example*
 
 List of spoken languages with optional competency breakdown:
 
@@ -125,21 +130,26 @@ languages:
         percent: 90
       - name: "Listening"
         percent: 85
+  - name: "Elvish / Sindarin"
+    flag: "un"
+    level: "Native"
+    percent: 100
 ```
 
 ---
 
-### 4. Technical Knowledge & Skills
+### 4. Technical Knowledge & Skills — *Nerdy Example*
 
 #### `knowledge_sections`
 Grouped narrative descriptions for core domains:
 
 ```yaml
 knowledge_sections:
-  - title: "Mobile & Multiplatform Development"
+  - title: "Astromech Avionics & Holonet Protocols"
     items:
-      - "High expertise in development with the **Android** SDK..."
-      - "Proficiency in Google's **Flutter** framework..."
+      - "Architecting real-time navigational firmware for R2-series Astromech droids running customized **Android Open Source Project (AOSP)** kernels under dependency injection principles..."
+      - "Cross-starfighter targeting telemetry and sub-light avionics using Google's **Flutter** framework for Rebel Alliance cockpits..."
+      - "Implementation of Kyber-encrypted Holonet relay streams via low-latency sub-space coroutines and decentralized mesh networks..."
 ```
 
 #### `skills`
@@ -147,10 +157,10 @@ Categorized pill badges rendered in the Skills accordion:
 
 ```yaml
 skills:
-  - category: "Mobile Development"
-    items: ["Android SDK (Java & Kotlin)", "Jetpack", "Compose", "Flutter SDK & Dart", "KMP"]
-  - category: "Architecture & Integration"
-    items: ["MVVM", "Clean Architecture", "Dagger & Hilt DI", "REST(FUL) APIs", "GraphQL"]
+  - category: "Astromech Engineering"
+    items: ["Android SDK (Kotlin)", "Jetpack Compose", "Flutter & Dart", "Binary Droidspeak (0101)", "Kotlin Multiplatform"]
+  - category: "Holonet & Avionics Architecture"
+    items: ["Sub-Space gRPC", "Kyber Encryption", "Hyperdrive Telemetry", "Clean Architecture", "Rebel Mesh Protocols"]
 ```
 
 #### `skills_summary`
@@ -158,24 +168,24 @@ List of high-level bullet points highlighting engineering leadership and methodo
 
 ```yaml
 skills_summary:
-  - "Appraise graphic design in mobile applications..."
-  - "Author comprehensive documentation for AI-driven development (AIDD)..."
+  - "Direct technical avionics strategy for Incom T-65B X-Wing starfighter telemetry arrays..."
+  - "Engineer fault-tolerant neural coprocessors for autonomous Protocol and Astromech droids (AIDD)..."
 ```
 
 ---
 
-### 5. Work Experience (`experience`)
+### 5. Work Experience (`experience`) — *Nerdy Example*
 
 Chronological list of career positions:
 
 ```yaml
 experience:
-  - company: "HUGE Inc."
-    location: "Bogotá, D.C., Colombia"
-    role: "Senior UI Engineer"
-    period: "Oct. 2026 – Present"
-    details: "Technical leadership and development of native **Android** applications..."
-    tech: ["Android SDK", "Kotlin", "AI Integrations", "GitHub", "Jetpack"]
+  - company: "Cyberdyne Systems"
+    location: "Sunnyvale, CA, USA"
+    role: "Principal Mobile Architect"
+    period: "2026 – Present"
+    details: "Technical leadership and architectural stewardship of autonomous companion software for **Android**..."
+    tech: ["Android SDK", "Kotlin", "Neural Networks", "GitHub", "Jetpack"]
 ```
 
 > [!NOTE]
@@ -183,38 +193,38 @@ experience:
 
 ---
 
-### 6. Projects & Showcase Applications (`projects`)
+### 6. Projects & Showcase Applications (`projects`) — *Nerdy Example*
 
 Featured mobile applications and client implementations:
 
 ```yaml
 projects:
-  - title: "Credomatic BAC App"
-    icon: "images/apps/bac-credomatic.png"       # App logo (preloaded in head)
-    client: "Banco Autónomo de Costa Rica"       # Client or organization name
+  - title: "Pip-Boy 3000 Personal Companion"
+    icon: "images/apps/pipboy-terminal.png"      # App logo image path
+    client: "Vault-Tec Industries"              # Client or organization name
     platforms: ["android", "ios"]               # Platform badges: "android", "ios", "web"
-    description: "Migration with **Flutter** app multiplatform technology..."
-    tech: ["Flutter", "Dart", "Banking Security"]
-    links:                                      # Store / web links
-      - name: "Google Play"
-        url: "https://play.google.com/store/apps/..."
-      - name: "App Store"
-        url: "https://apps.apple.com/..."
+    description: "Multiplatform survival telemetry suite built with **Kotlin Multiplatform** and **Compose**, streaming real-time Geiger counter rad levels, V.A.T.S. targeting calibration, and inventory state machines."
+    tech: ["Kotlin Multiplatform", "Jetpack Compose", "BLE Telemetry", "Vault-Tec SDK"]
+    links:                                      # Store / web / demo links
+      - name: "RobCo Terminal"
+        url: "https://robco.internal/apps/..."
+      - name: "Holonet / GitHub"
+        url: "https://github.com/vault-tec/..."
 ```
 
 ---
 
-### 7. Education & Other Studies
+### 7. Education & Other Studies — *Nerdy Example*
 
 #### `education`
 Academic university and secondary school degrees:
 
 ```yaml
 education:
-  - degree: "Professional Computing Science"
-    institution: "Escuela Colombiana de Ingeniería Julio Garavito"
-    period: "2003 – 2009"
-    details: "(Degree received March 27, 2010) Graduated with emphasis in software quality..."
+  - degree: "B.S. in Advanced Cybernetics & Quantum Computing"
+    institution: "Starfleet Academy, San Francisco"
+    period: "2380 – 2384"
+    details: "Graduated with highest honors specializing in fault-tolerant distributed warp-drive operating systems..."
 ```
 
 #### `other_studies`
@@ -222,27 +232,27 @@ Conferences, specialized courses, certifications, and teaching:
 
 ```yaml
 other_studies:
-  - title: "Attendee FlutterConf Latam Medellín Colombia"
-    institution: "Flutter Latam Community"
-    period: "25 – 26 October 2023"
+  - title: "Certified Warp Core & POSIX Systems Specialist"
+    institution: "Daystrom Institute of Technology"
+    period: "October 2385"
 ```
 
 ---
 
-### 8. Publications & Articles (`publications`)
+### 8. Publications & Articles (`publications`) — *Nerdy Example*
 
 Technical articles, tutorials, and open-source companion repositories. Supports single URLs as well as multiple linked resources:
 
 ```yaml
 publications:
-  - title: "A Tale of Two Technologies: App Android"
-    details: "A curated 10-article list comparing Google's modern mobile ecosystems..."
-    url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5" # (Optional) Direct article link
-    github: "https://github.com/Al3jodroid/pokemon-android"                  # (Optional) Primary repo link
-    links:                                                                  # (Optional) Multiple additional links
+  - title: "Chronicles of the Multiverse: High-Performance Mobile Kernels"
+    details: "A 10-part technical series detailing low-latency render loops across alternate realities..."
+    url: "https://medium.com/@.../multiverse-kernels"
+    github: "https://github.com/example/multiverse-android"
+    links:
       - name: "Flutter Companion Repo"
-        url: "https://github.com/Al3jodroid/pokemon-flutter"
-      - name: "Documentation / Demo"
+        url: "https://github.com/example/multiverse-flutter"
+      - name: "Holonet Interactive Demo"
         url: "https://example.com/demo"
 ```
 
@@ -254,15 +264,15 @@ publications:
 
 ---
 
-### 9. References (`references`)
+### 9. References (`references`) — *Nerdy Example*
 
 Professional recommendations and contact references:
 
 ```yaml
 references:
-  - name: "Luis Javier Torres"
-    role: "Specialized Technology Principal Android & Flutter"
-    linkedin: "https://www.linkedin.com/in/luisjtorres/"
+  - name: "Tony Stark"
+    role: "Chief Technology Officer & Lead Architect, Stark Industries"
+    linkedin: "https://www.linkedin.com/in/..."
 ```
 
 ---
@@ -316,7 +326,7 @@ The compiled output will be generated inside the `./public` directory.
 ## 📬 Contact & Links
 
 - **Website**: [al3jodroid.github.io](https://al3jodroid.github.io/)
-- **Email**: [alejodroid.co@gmail.com](mailto:alejodroid.co@gmail.com)
+- **Email**: [al3jodroid@proton.me](mailto:al3jodroid@proton.me)
 - **LinkedIn**: [linkedin.com/in/al3jodroid](https://www.linkedin.com/in/al3jodroid/)
 - **GitHub**: [github.com/Al3jodroid](https://github.com/Al3jodroid)
 - **Google Developer**: [g.dev/Al3jodroid](https://g.dev/Al3jodroid)
@@ -331,6 +341,7 @@ As a Software Engineer specializing primarily in native and cross-platform mobil
 Special thanks to **Antigravity** (AI pair programming assistant by Google DeepMind) for collaborating throughout this project:
 - Helping debug complex layout bugs and resolve subtle cross-browser printing quirks.
 - Providing guidance and deep-dives into modern HTML5 and CSS architecture to bridge native mobile paradigms with the web.
+- Conducting accessibility (WCAG 2.1 AA) and performance audits to ensure full keyboard navigation, ARIA semantics, and optimal Core Web Vitals.
 - Streamlining CI/CD workflows and automated deployments to GitHub Pages.
 
 ---
