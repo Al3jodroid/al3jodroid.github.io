@@ -254,15 +254,19 @@ other_studies:
     period: "26 al 28 de Octubre de 2016"
 
 publications:
-  - title: "Un cuento de dos tecnologías: App Android"
-    details: "Una lista de 10 artículos que compara los ecosistemas móviles modernos de Google. Análisis exhaustivo de desarrollo en **Android**: arquitectura limpia, interfaz con Jetpack Compose, gestión reactiva de estados con sealed interfaces, inyección de dependencias con Dagger Hilt y flujos asíncronos con Kotlin Coroutines y Retrofit."
+  - title: "Un cuento de dos tecnologías: Android && Flutter"
+    details: "Una lista de 10 artículos que compara los ecosistemas móviles modernos de Google. Análisis y guía en profundidad de arquitectura móvil: desarrollo nativo en **Android** (Clean Architecture, Jetpack Compose, sealed interfaces, Dagger Hilt, Coroutines) y multiplataforma en **Flutter** (Dart, widgets modulares, MultiProvider), demostrando simetría arquitectónica entre ambas plataformas."
     url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
-    github: "https://github.com/Al3jodroid/pokemon-android"
+    links:
+      - name: "GitHub (Android)"
+        url: "https://github.com/Al3jodroid/pokemon-android"
+      - name: "GitHub (Flutter)"
+        url: "https://github.com/Al3jodroid/pokemon-flutter"
 
-  - title: "Un cuento de dos tecnologías: App Flutter"
-    details: "Una lista de 10 artículos que compara los ecosistemas móviles modernos de Google. Guía y análisis en profundidad de arquitectura con **Flutter** y Dart: widgets modulares desacoplados, gestión reactiva de estados con MultiProvider, llamadas asíncronas de red y simetría arquitectónica frente a patrones nativos de Android."
-    url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
-    github: "https://github.com/Al3jodroid/pokemon-flutter"
+  - title: "Copetón AI (En progreso)"
+    details: "Serie de artículos en progreso sobre Inteligencia Artificial, desarrollo asistido por IA (AIDD) e integración de agentes autónomos y flujos Human-in-the-Loop (HITL) aplicados a la arquitectura y desarrollo de software moderno."
+    url: "https://medium.com/@al3jodroid/list/copeton-ai-bef8bd9a5070"
+    github: "https://github.com/Al3jodroid/copeton-project"
 
 references:
   - name: "Monica Camacho Clavijo"

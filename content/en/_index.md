@@ -253,15 +253,19 @@ other_studies:
     period: "26 – 28 October 2016"
 
 publications:
-  - title: "A Tale of Two Technologies: App Android"
-    details: "A curated 10-article list comparing Google's modern mobile ecosystems. A comprehensive deep-dive into **Android** development: Clean Architecture, Jetpack Compose UI, reactive state management using sealed interfaces, Dagger Hilt dependency injection, and asynchronous networking with Kotlin Coroutines and Retrofit."
+  - title: "A Tale of Two Technologies: Android && Flutter"
+    details: "A curated 10-article series comparing Google's modern mobile ecosystems. An in-depth architectural comparison covering native **Android** development (Clean Architecture, Jetpack Compose, sealed interfaces, Dagger Hilt, Coroutines) and multiplatform **Flutter** (Dart, modular widgets, MultiProvider), highlighting architectural symmetry and best practices across both platforms."
     url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
-    github: "https://github.com/Al3jodroid/pokemon-android"
+    links:
+      - name: "GitHub (Android)"
+        url: "https://github.com/Al3jodroid/pokemon-android"
+      - name: "GitHub (Flutter)"
+        url: "https://github.com/Al3jodroid/pokemon-flutter"
 
-  - title: "A Tale of Two Technologies: App Flutter"
-    details: "A curated 10-article list comparing Google's modern mobile ecosystems. An in-depth exploration of multiplatform **Flutter** architecture: building decoupled modular widgets, reactive state management with MultiProvider, asynchronous networking with Dart, and maintaining architectural symmetry with native Android patterns."
-    url: "https://medium.com/@al3jodroid/list/android-flutter-c7512585c5d5"
-    github: "https://github.com/Al3jodroid/pokemon-flutter"
+  - title: "Copetón AI (In Progress)"
+    details: "An in-progress series of articles exploring Artificial Intelligence, AI-Driven Development (AIDD), and the integration of autonomous agents with Human-in-the-Loop (HITL) workflows applied to modern software engineering."
+    url: "https://medium.com/@al3jodroid/list/copeton-ai-bef8bd9a5070"
+    github: "https://github.com/Al3jodroid/copeton-project"
 
 references:
   - name: "Monica Camacho Clavijo"
